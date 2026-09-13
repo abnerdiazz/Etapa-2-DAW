@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Promociones de la Abuela</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="colorbody">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand italic" href="index.html">La Cocina de la Abuela 🥗</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse italic" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="Index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
+                        <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="promociones.html">Promociones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <div class="container pt-5">
+        <h1 class="italic">Promociones en La Casa de la Abuela</h1>
+        <p class="italic text-center">Elíge el código que se ajuste a tu presupuesto</p>
+        <br>
+        <!-- Botones -->
+        <div class="row mb-4 text-center g-3">
+            <div class="col-12 col-md-4">
+                <button class="btn btn-primary w-100 shadow-lg btn-hover-lift" onclick="mostrarPromo('promo1')">
+                    Promociones Familiares
+                </button>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <button class="btn btn-success w-100 shadow-lg btn-hover-lift" onclick="mostrarPromo('promo2')">
+                    Promociones Semanales
+                </button>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <button class="btn btn-danger w-100 shadow-lg btn-hover-lift" onclick="mostrarPromo('promo3')">
+                    Promociones Escolares
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promocion 1 -->
+    <div id="promo1" class="promo-container">
+        <div class="container">
+            <div class="row mb-4 justify-content-center g-4">
+            <!-- Imagen 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img36.jpg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Fajitas Familiar $40.00"</h5>
+                            <p class="mb-1">FJ346</p>
+                            <p class="card-text">Incluye fajitas para 4 personas, salsas y chimol.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <!-- Imagen 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img37.webp" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Pollo Frito Familiar $38.00"</h5>
+                            <p class="mb-1">PFF35</p>
+                            <p class="card-text">Incluye 8 piezas de pollo, 4 sodas, 4 papas fritas y 2 postres.</p>               
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-5 justify-content-center g-4">
+            <!-- Imagen 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img38.webp" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Marisco Familiar $46.00"</h5>
+                            <p class="mb-1">MF468</p>
+                            <p class="card-text">Incluye una langosta, camarones, pezcado y cangrejo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <!-- Imagen 4 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img39.jpeg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Todos Fit $20.00"</h5>
+                            <p class="mb-1">FIT02</p>
+                            <p class="card-text">5 Bowls de ensalada con el aderezo de tu preferencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+    <!--Promocion 2-->
+    <div id="promo2" class="promo-container d-none">
+        <div class="container">
+            <div class="row mb-4 justify-content-center g-4">
+            <!-- Imagen 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img40.jpg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"2X1 En Comida rápida"</h5>
+                            <p class="mb-1">F4ST0</p>
+                            <p class="card-text">Exclusivo todos los Lunes en comidas rápidas, precio* varía en primer plato.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <!-- Imagen 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img41.jpg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Martes de Buffet"</h5>
+                            <p class="mb-1">BUFF68</p>
+                            <p class="card-text">Ven y disfruta el buffet en por solo $15.00 por persona.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-5 justify-content-center g-4">
+            <!-- Imagen 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img42.webp" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Jueves de Bebersh"</h5>
+                            <p class="mb-1">BB793</p>
+                            <p class="card-text">Tráe a más de un amigo y disfruten las bebidas entre pláticas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <!-- Imagen 4 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img43.jpg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Viernes Chill"</h5>
+                            <p class="mb-1">CH6810</p>
+                            <p class="card-text">Todos los Viernes contamos con envío gratis hasta tu domicilio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Promocion 3-->
+    <div id="promo3" class="promo-container d-none">
+        <div class="container">
+            <div class="row mb-4 justify-content-center g-4">
+            <!-- Imagen 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img44.jpg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Tres pupusas por $1.00"</h5>
+                            <p class="mb-1">EC143</p>
+                            <p class="card-text">Incluye curtido y salsa, y bebida de preferencia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <!-- Imagen 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img45.jpeg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"¿De pollo o de Jamón? $1.50"</h5>
+                            <p class="mb-1">PJ876</p>
+                            <p class="card-text">Prueba nuestros deliciosos sandwiches + chocolate caliente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-5 justify-content-center g-4">
+            <!-- Imagen 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img46.jpg" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">"Manguito Indio $0.75"</h5>
+                            <p class="mb-1">MIT80</p>
+                            <p class="card-text">Exquisito Bowl de Mango con sus respectivos complementos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <!-- Imagen 4 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/img47.webp" class="card-img-top imgsize" alt="Promoción">
+                        <div class="card-body text-center">
+                            <div class="card-body text-center">
+                            <h5 class="card-title">"Hojitas con Café $1.00"</h5>
+                            <p class="mb-1">0J1T4S</p>
+                            <p class="card-text">Son 4 dulces hojitas + una taza de café.</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="text-center mt-4">
+        <button class="btn btn-info btn-hover">📞 ¡Ordena Ya!</button>
+    </div>
+    <br>
+    <footer class="bg-dark text-white text-center p-2">
+            <p>Síguenos en:</p>
+            <p>
+            <a href="https://www.facebook.com/" target="_blank" class="text-white me-5 text-decoration-none">
+                <i class="bi bi-facebook fs-4"></i>
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank" class="text-white me-5 text-decoration-none">
+                <i class="bi bi-instagram fs-4"></i>
+            </a>
+
+            <a href="https://x.com/" target="_blank" class="text-white">
+                <i class="bi bi-twitter-x fs-4"></i>
+            </a>
+        </p>
+
+            <p>📍 Dirección: Calle a San Salvador, San Salvador #5972</p>
+            <p>📞 Tel: +503 7909 - 5872</p>
+            <p>
+                <a href="https://mail.google.com/" target="_blank" class="email-link" style="text-decoration: none;"> ✉ Email: contacto@lacocinadelaabuela.com</a>
+            </p>
+
+            <p>&copy; 2026 La Cocina de la Abuela 🥗</p>
+    </footer>
+
+    <script>
+    function mostrarPromo(id) {
+        let promos = document.querySelectorAll('.promo-container');
+
+        promos.forEach(promo => {
+            promo.classList.add('d-none');
+        });
+
+        document.getElementById(id).classList.remove('d-none');
+    }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

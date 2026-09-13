@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>La Galería de la Abuela</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body class="colorbody">
+    <header class="italic">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand italic" href="index.html">La Cocina de la Abuela 🥗</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse italic" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="Index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="galeria.html">Galería</a></li>
+                        <li class="nav-item"><a class="nav-link" href="promociones.html">Promociones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <h1 class="text-center pt-5">La Galería de la Abuela</h1>
+        <p class="text-center">Descubre los recuerdos de la Abuela</p>
+
+    </header>
+
+    <div class="container">
+        <div class="row galeria my-3">
+            <section class="mt-4">
+                <h2 class="text-center text-md-start ps-0 ps-md-5 italic">Recuerdos del crecimiento</h2>
+                <div class="row text-center mt-4">
+                    <div class="col-md-4">
+                        <img src="img/img18.jpg" 
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="1995 - El inicio">
+                        <p class="mt-2">1995 - El inicio.</p>
+                    </div>
+                    
+
+                    <div class="col-md-4">
+                        <img src="img/img19.webp" 
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)" 
+                        alt="2005 - Nuestro primer local.">
+                        <p class="mt-2">2005 - Nuestro primer local.</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img20.jpg" 
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="2010 - Nuestros clientes.">
+                        <p class="mt-2">2010 - Nuestros clientes.</p>
+                    </div>
+                </div>
+
+                <div class="row text-center mt-4">
+            
+                    <div class="col-md-4">
+                        <img src="img/img21.jpg"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="2015 - El desarrollo.">
+                        <p class="mt-2">2015 - El desarrollo.</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img22.jpg" 
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="2020 - Nuestro segundo local.">
+                        <p class="mt-2">2020 - Nuestro segundo local.</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img23.jpg" 
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="2026 - En la actualidad.">
+                        <p class="mt-2">2026 - En la actualidad.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="row galeria my-5">
+            <section class="mt-4">
+                <h2 class="text-center text-md-start ps-0 ps-md-5 italic">Los platillos de la abuela</h2>
+                <div class="row text-center mt-4">
+            
+                    <div class="col-md-4">
+                        <img src="img/img24.webp" 
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Filet Mignon">
+                        <p class="mt-2">Filet Mignon</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img25.jpg" 
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)" 
+                        alt="Risotto de Trufa">
+                        <p class="mt-2">Risotto de Trufa</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img26.jpg"
+                       class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)" 
+                        alt="Foie Gras">
+                        <p class="mt-2">Foie Gras</p>
+                    </div>
+                </div>
+
+                <div class="row text-center mt-4">
+            
+                    <div class="col-md-4">
+                        <img src="img/img27.webp"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Pato a la naranja">
+                        <p class="mt-2">Pato a la naranja</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img28.jpg"
+                        class="img-fluid imgsize cursor-pointer"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Vieiras Gratinadas">
+                        <p class="mt-2">Vieiras Gratinadas</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img29.jpg"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Pupusas">
+                        <p class="mt-2">Pupusas</p>
+                    </div>
+                </div>
+
+
+            </section>
+        </div>
+
+        <div class="row galeria my-5">
+            <section class="mt-4">
+                <h2 class="text-center text-md-start ps-0 ps-md-5 italic">Celebraciones en La Casa de la Abuela</h2>
+                <div class="row text-center mt-4">
+            
+                    <div class="col-md-4">
+                        <img src="img/img30.webp"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Día de la Madre">
+                        <p class="mt-2">Día de la Madre</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img31.jpg"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Día del niño">
+                        <p class="mt-2">Día del niño</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img32.jpg"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="San Valentín">
+                        <p class="mt-2">San Valentín</p>
+                    </div>
+                </div>
+
+                <div class="row text-center mt-4">
+            
+                    <div class="col-md-4">
+                        <img src="img/img33.webp"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Día del Padre">
+                        <p class="mt-2">Día del Padre</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img34.jpg"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Halloween">
+                        <p class="mt-2">Halloween</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="img/img35.jpg"
+                        class="img-fluid imgsize clickable-image"
+                        onclick="expandImage(this)"
+                        alt="Navidad">
+                        <p class="mt-2">Navidad</p>
+                    </div>
+                </div>
+            </section>
+                </div>
+                <section class="mt-4">
+
+                <div class="row mb-4">
+                    <div class="col-12 text-center">
+                        <h3>Ven y disfruta en La Casa de la Abuela 🥗😊</h3>
+                        <p>📍Calle a San Salvador, San Salvador #5972</p>
+                    </div>
+                </div>
+               <div class="mapa-container">
+                    <iframe class="mapa align-items-center" 
+                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d495908.0042566252!2d-89.7204657!3d13.8221409!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f63303d84d70791%3A0x92058dc11d4f6a7a!2zVMOtcGljb3MgTWFyZ290aCDigKIgRXNjYWzDs24!5e0!3m2!1ses!2sus!4v1775604102640!5m2!1ses!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>         
+                </div>
+            </section>
+    </div>
+    <br>
+    <br>
+    <footer class="bg-dark text-white text-center p-2 my-3">
+        <p>Síguenos en:</p>
+        <p>
+            <a href="https://www.facebook.com/" target="_blank" class="text-white me-5 text-decoration-none">
+                <i class="bi bi-facebook fs-4"></i>
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank" class="text-white me-5 text-decoration-none">
+                <i class="bi bi-instagram fs-4"></i>
+            </a>
+
+            <a href="https://x.com/" target="_blank" class="text-white">
+                <i class="bi bi-twitter-x fs-4"></i>
+            </a>
+        </p>
+
+        <p>📍 Dirección: Calle a San Salvador, San Salvador #5972</p>
+        <p>📞 Tel: +503 7909 - 5872</p>
+        <p>
+            <a href="https://mail.google.com/" target="_blank" class="email-link" style="text-decoration: none;"> ✉ Email: contacto@lacocinadelaabuela.com</a>
+        </p>
+
+        <p>&copy; 2026 La Cocina de la Abuela 🥗</p>
+    </footer>
+
+    <div id="fullscreen-view" onclick="closeImage()">
+        <img id="fullscreen-image">
+    </div>
+
+    <script>
+    function expandImage(img){
+        document.getElementById("fullscreen-image").src = img.src;
+        document.getElementById("fullscreen-view").style.display = "flex";
+    }
+
+    function closeImage(){
+        document.getElementById("fullscreen-view").style.display = "none";
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
