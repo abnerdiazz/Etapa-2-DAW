@@ -2,384 +2,59 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Menú - La Cocina de la Abuela</title>
+    <title>SaborExpress - Menú</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-
-<body class="colorbody">
+<body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand italic" href="index.html">La Cocina de la Abuela 🥗</a>
-
+                <a class="navbar-brand fw-bold" href="index.html">SaborExpress</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse italic" id="menu">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="Index.html">Inicio</a></li>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link " href="index.html">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link active" href="menu.html">Menú</a></li>
-                        <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
-                        <li class="nav-item"><a class="nav-link" href="promociones.html">Promociones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link " href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link " href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link " href="mis-pedidos.html">Mis Pedidos</a></li>
+                        <li class="nav-item"><a class="nav-link " href="carrito.html">Carrito</a></li>
                     </ul>
+                    <a class="nav-link ms-lg-3 text-white" href="login.html">Mi cuenta / Iniciar sesión</a>
                 </div>
             </div>
         </nav>
     </header>
-
-    <div class="container pt-5">
-        <br>
-        <h1 class="italic">El Menú de la Abuela</h1>
-        <p class="text-center italic ">Disfruta nuestros deliciosos platillos</p>
-
-        <div class="accordion my-5" id="menuAccordion">
-
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button italic" type="button" data-bs-toggle="collapse" data-bs-target="#aperitivos">
-                        Aperitivos
-                    </button>
-                </h2>
-                <div id="aperitivos" class="accordion-collapse collapse show" data-bs-parent="#menuAccordion">
-                    <div class="accordion-body">
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img6.jpg" class="card-img-top imgsize" alt="Ensaladilla Rusa">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Ensaladilla Rusa $3.75</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img7.webp" class="card-img-top imgsize" alt="Patatas Bravas">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Patatas Bravas $3.25</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img8.jpg" class="card-img-top imgsize" alt="Pinchos de Camarones">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Pinchos de Camarones $4.50</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-5 g-4">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/crema.jpg" class="card-img-top imgsize" alt="Crema de esparragos">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Crema de esparragos $2.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/Bruschetta.jpg" class="card-img-top imgsize" alt="Bruschetta">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Bruschetta $3.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/ceviche.jpg" class="card-img-top imgsize" alt="Ceviche">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Ceviche $4.25</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed italic" type="button" data-bs-toggle="collapse" data-bs-target="#principales">
-                        Platos Principales
-                    </button>
-                </h2>
-                <div id="principales" class="accordion-collapse collapse" data-bs-parent="#menuAccordion">
-                    <div class="accordion-body">
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img9.webp" class="card-img-top imgsize" alt="Classic Grilled Ribeyes">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Classic Grilled Ribeyes $5.50</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img10.webp" class="card-img-top imgsize" alt="Filet Mignon">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Filet Mignon $6.25</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img11.jpg" class="card-img-top imgsize" alt="Garlic Chicken">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Garlic Chicken $4.90</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row g-4 pt-5">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/costilla.jpg" class="card-img-top imgsize" alt="Costilla al horno">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Costilla al horno $5.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/lasagna.jpg" class="card-img-top imgsize" alt="Lasagna de Carne">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Lasagna de carne $5.50</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/langosta.jpg" class="card-img-top imgsize" alt="Langosta">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Langosta $7.90</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-4 pt-5">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/burger.jpg" class="card-img-top imgsize" alt="Hamburguesa Gourmet">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Hamburguesa Gourmet $5.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/panes.jpg" class="card-img-top imgsize" alt="Panes con Pollo">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Panes con Pollo $6.50</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/salmon.webp" class="card-img-top imgsize" alt="Salmon">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Salmon $7.90</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed italic" type="button" data-bs-toggle="collapse" data-bs-target="#postres">
-                        Postres
-                    </button>
-                </h2>
-                <div id="postres" class="accordion-collapse collapse" data-bs-parent="#menuAccordion">
-                    <div class="accordion-body">
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img12.jpg" class="card-img-top imgsize" alt="Strawberry Cheescake">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Strawberry Cheescake $3.50
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img13.webp" class="card-img-top imgsize" alt="Apple Pie">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Apple Pie $3.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img14.jpg" class="card-img-top imgsize" alt="Tres Leches">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Tres Leches $3.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-5 g-4">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/flan.webp" class="card-img-top imgsize" alt="Flan de banana">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Flan de banana $2.50
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/brownie.jpg" class="card-img-top imgsize" alt="Brownie de Almendra">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Brownie de Almendra $3.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/pana.jpg" class="card-img-top imgsize" alt="Panna Cotta">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Panna Cotta $3.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed italic" type="button" data-bs-toggle="collapse" data-bs-target="#bebidas">Bebidas
-                    </button>
-                </h2>
-                <div id="bebidas" class="accordion-collapse collapse" data-bs-parent="#menuAccordion">
-                    <div class="accordion-body">
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img15.jpg" class="card-img-top imgsize" alt="Horchata">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Horchata $1.50</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img16.jpg" class="card-img-top imgsize" alt="Orange Juice">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Orange Juice $1.25</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/img17.jpg" class="card-img-top imgsize" alt="Chocololate Milk">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Chocolate Milk $1.75</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-4 pt-5">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/licuados.jpg" class="card-img-top imgsize" alt="Licuados Naturales">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Licuados Naturales $2.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/limon.jpg" class="card-img-top imgsize" alt="Limonada de Menta">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Limonada de Menta $1.25</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="img/soda.jpg" class="card-img-top imgsize" alt="Gaseosas">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Geseosas $0.75</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>    
-    <div class="text-center mt-4">
-        <button class="btn btn-info btn-hover">📞 ¡Ordena Ya!</button>
-    </div>
     <br>
+
+    <section class="container pt-5">
+        <h1 class="fw-bold">Nuestro Menú</h1>
+        <p>Ordena en línea y recibe tus pupusas favoritas a domicilio.</p>
+        <div class="bg-light rounded-3 d-flex align-items-center justify-content-center" style="height:220px;">
+            <span class="text-muted">IMAGEN / CONTENIDO PENDIENTE</span>
+        </div>
+    </section>
+    <br>
+
     <footer class="bg-dark text-white text-center p-2">
-            <p>Síguenos en:</p>
-            <p>
-            <a href="https://www.facebook.com/" target="_blank" class="text-white me-5 text-decoration-none">
-                <i class="bi bi-facebook fs-4"></i>
-            </a>
-
-            <a href="https://www.instagram.com/" target="_blank" class="text-white me-5 text-decoration-none">
-                <i class="bi bi-instagram fs-4"></i>
-            </a>
-
-            <a href="https://x.com/" target="_blank" class="text-white">
-                <i class="bi bi-twitter-x fs-4"></i>
-            </a>
+        <p>Síguenos en:</p>
+        <p>
+            <a href="https://www.facebook.com/" target="_blank" class="text-white me-5 text-decoration-none"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="text-white me-5 text-decoration-none"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="https://x.com/" target="_blank" class="text-white"><i class="bi bi-twitter-x fs-4"></i></a>
         </p>
-
-            <p>📍 Dirección: Calle a San Salvador, San Salvador #5972</p>
-            <p>📞 Tel: +503 7909 - 5872</p>
-            <p>
-                <a href="https://mail.google.com/" target="_blank" class="email-link" style="text-decoration: none;"> ✉ Email: contacto@lacocinadelaabuela.com</a>
-            </p>
-
-            <p>&copy; 2026 La Cocina de la Abuela 🥗</p>
+        <p>📍 Dirección: Calle El Mirador, #123, Colonia Escalón, San Salvador.</p>
+        <p>📞 Tel: +503 2200-0000</p>
+        <p><a href="https://mail.google.com/" target="_blank" style="color:#fff; text-decoration:none;"> ✉ Email: soporte@saborexpress.com</a></p>
+        <p>&copy; 2026 SaborExpress</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const accordion = document.getElementById('menuAccordion');
 
-            accordion.addEventListener('shown.bs.collapse', function (event) {
-                // Subir suavemente al inicio del acordeón
-                accordion.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-        </script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
