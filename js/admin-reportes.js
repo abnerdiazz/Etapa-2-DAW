@@ -168,7 +168,7 @@ function render() {
     document.getElementById('metricOrders').textContent = pedidos.length.toLocaleString('es-SV');
     document.getElementById('metricRevenue').textContent = money(ingresos);
     document.getElementById('metricAverage').textContent = money(pedidos.length ? ingresos / pedidos.length : 0);
-    document.getElementById('metricTopProduct').textContent = productos[0]?.nombre.replace(/^Pupusa de /, '').replace(/^Pupusa /, '') || '—';
+    document.getElementById('metricTopProduct').textContent = productos[0]?.nombre || '—';
 
     const { inicio, fin } = rangoActual();
     document.getElementById('salesPeriodLabel').textContent = state.inicioPersonalizado

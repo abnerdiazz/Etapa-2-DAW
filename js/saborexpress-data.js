@@ -1,20 +1,29 @@
 export const PRODUCTOS_INICIALES = [
-    { id: 'pup-revuelta', nombre: 'Pupusa Revuelta', categoria: 'Pupusas', precio: 0.85, imagen: 'img/pupusa-revuelta.png', descripcion: 'Clásica de delicioso chicharrón molido, frijoles refritos y abundante queso derretido.', activo: true },
-    { id: 'pup-loroco', nombre: 'Pupusa de Queso con Loroco', categoria: 'Pupusas', precio: 0.90, imagen: 'img/pupusa-loroco.png', descripcion: 'Suave queso tradicional mezclado con loroco fresco finamente picado de alta calidad.', activo: true },
-    { id: 'pup-frijol-queso', nombre: 'Pupusa de Frijol con Queso', categoria: 'Pupusas', precio: 0.85, imagen: 'img/pupusa-frijol-queso.png', descripcion: 'Frijoles rojos molidos cocinados lentamente combinados con nuestro queso artesanal.', activo: true },
-    { id: 'pup-loca', nombre: 'Pupusa Loca', categoria: 'Pupusas', precio: 1.50, imagen: 'img/pupusa-loca.png', descripcion: '¡La más grande! Una mezcla generosa de los ingredientes de la casa.', activo: true },
-    { id: 'pup-queso', nombre: 'Pupusa de Queso', categoria: 'Pupusas', precio: 0.80, imagen: 'img/pupusa-queso.png', descripcion: 'Pupusa tradicional rellena de abundante queso derretido, suave y reconfortante.', activo: true },
-    { id: 'tip-nuegados', nombre: 'Nuegados de Yuca con Miel', categoria: 'Típicos', precio: 1.75, imagen: 'img/nuegados.png', descripcion: 'Nuegados de yuca suaves bañados con miel dulce tradicional.', activo: true },
-    { id: 'tip-yuca', nombre: 'Yuca Frita con Chicharrón', categoria: 'Típicos', precio: 2.75, imagen: 'img/yuca-frita.png', descripcion: 'Yuca dorada y crujiente acompañada de curtido y chicharrones.', activo: true },
-    { id: 'beb-coca', nombre: 'Coca-Cola en Lata', categoria: 'Bebidas', precio: 1.00, imagen: 'img/soda-coca-cola.png', descripcion: 'Coca-Cola bien helada para acompañar tu pedido.', activo: true },
-    { id: 'beb-fanta', nombre: 'Fanta en Lata', categoria: 'Bebidas', precio: 1.00, imagen: 'img/soda-fanta.png', descripcion: 'Fanta naranja fría y refrescante.', activo: true },
-    { id: 'beb-sprite', nombre: 'Sprite en Lata', categoria: 'Bebidas', precio: 1.00, imagen: 'img/soda-sprite.png', descripcion: 'Sprite fría con su clásico sabor limón-lima.', activo: true },
-    { id: 'beb-fresa', nombre: 'Tropical Fresa', categoria: 'Bebidas', precio: 1.00, imagen: 'img/soda-fresa.png', descripcion: 'Soda Tropical sabor fresa servida bien fría.', activo: true },
-    { id: 'beb-chocolate', nombre: 'Chocolate Caliente', categoria: 'Bebidas', precio: 0.90, imagen: 'img/chocolate.png', descripcion: 'Chocolate caliente cremoso y reconfortante, preparado al estilo de casa.', activo: true },
-    { id: 'beb-cafe', nombre: 'Café de Olla', categoria: 'Bebidas', precio: 0.75, imagen: 'img/cafe.png', descripcion: 'Café de altura tradicional caliente, con un sutil toque aromático de canela.', activo: true },
-    { id: 'pos-quesadilla', nombre: 'Quesadilla Salvadoreña', categoria: 'Postres', precio: 1.25, imagen: 'img/quesadilla.png', descripcion: 'Tradicional quesadilla salvadoreña, suave, esponjosa y con delicado sabor a queso.', activo: true },
-    { id: 'pos-arroz', nombre: 'Arroz con Leche', categoria: 'Postres', precio: 1.50, imagen: 'img/arroz-leche.png', descripcion: 'Postre cremoso de arroz con leche, canela y dulzor casero.', activo: true }
+    { id: 'pup-revuelta', nombre: 'Pupusa Revuelta', categoria: 'Pupusas', precio: 0.85, imagen: 'img/menú/pupusa-revuelta.png', descripcion: 'Clásica de delicioso chicharrón molido, frijoles refritos y abundante queso derretido.', activo: true },
+    { id: 'pup-loroco', nombre: 'Pupusa de Queso con Loroco', categoria: 'Pupusas', precio: 0.90, imagen: 'img/menú/pupusa-loroco.png', descripcion: 'Suave queso tradicional mezclado con loroco fresco finamente picado de alta calidad.', activo: true },
+    { id: 'pup-frijol-queso', nombre: 'Pupusa de Frijol con Queso', categoria: 'Pupusas', precio: 0.85, imagen: 'img/menú/pupusa-frijol-queso.png', descripcion: 'Frijoles rojos molidos cocinados lentamente combinados con nuestro queso artesanal.', activo: true },
+    { id: 'pup-loca', nombre: 'Pupusa Loca', categoria: 'Pupusas', precio: 1.50, imagen: 'img/menú/pupusa-loca.png', descripcion: '¡La más grande! Una mezcla generosa de los ingredientes de la casa.', activo: true },
+    { id: 'pup-queso', nombre: 'Pupusa de Queso', categoria: 'Pupusas', precio: 0.80, imagen: 'img/menú/pupusa-queso.png', descripcion: 'Pupusa tradicional rellena de abundante queso derretido, suave y reconfortante.', activo: true },
+    { id: 'tip-nuegados', nombre: 'Nuegados de Yuca con Miel', categoria: 'Típicos', precio: 1.75, imagen: 'img/menú/nuegados.png', descripcion: 'Nuegados de yuca suaves bañados con miel dulce tradicional.', activo: true },
+    { id: 'tip-yuca', nombre: 'Yuca Frita con Chicharrón', categoria: 'Típicos', precio: 2.75, imagen: 'img/menú/yuca-frita.png', descripcion: 'Yuca dorada y crujiente acompañada de curtido y chicharrones.', activo: true },
+    { id: 'beb-coca', nombre: 'Coca-Cola en Lata', categoria: 'Bebidas', precio: 1.00, imagen: 'img/menú/soda-coca-cola.png', descripcion: 'Coca-Cola bien helada para acompañar tu pedido.', activo: true },
+    { id: 'beb-fanta', nombre: 'Fanta en Lata', categoria: 'Bebidas', precio: 1.00, imagen: 'img/menú/soda-fanta.png', descripcion: 'Fanta naranja fría y refrescante.', activo: true },
+    { id: 'beb-sprite', nombre: 'Sprite en Lata', categoria: 'Bebidas', precio: 1.00, imagen: 'img/menú/soda-sprite.png', descripcion: 'Sprite fría con su clásico sabor limón-lima.', activo: true },
+    { id: 'beb-fresa', nombre: 'Tropical Fresa', categoria: 'Bebidas', precio: 1.00, imagen: 'img/menú/soda-fresa.png', descripcion: 'Soda Tropical sabor fresa servida bien fría.', activo: true },
+    { id: 'beb-chocolate', nombre: 'Chocolate Caliente', categoria: 'Bebidas', precio: 0.90, imagen: 'img/menú/chocolate.png', descripcion: 'Chocolate caliente cremoso y reconfortante, preparado al estilo de casa.', activo: true },
+    { id: 'beb-cafe', nombre: 'Café de Olla', categoria: 'Bebidas', precio: 0.75, imagen: 'img/menú/cafe.png', descripcion: 'Café de altura tradicional caliente, con un sutil toque aromático de canela.', activo: true },
+    { id: 'pos-quesadilla', nombre: 'Quesadilla Salvadoreña', categoria: 'Postres', precio: 1.25, imagen: 'img/menú/quesadilla.png', descripcion: 'Tradicional quesadilla salvadoreña, suave, esponjosa y con delicado sabor a queso.', activo: true },
+    { id: 'pos-arroz', nombre: 'Arroz con Leche', categoria: 'Postres', precio: 1.50, imagen: 'img/menú/arroz-leche.png', descripcion: 'Postre cremoso de arroz con leche, canela y dulzor casero.', activo: true }
 ];
+
+// Adapta las rutas del catalogo anterior sin borrar los datos guardados.
+const rutasAnteriores = new Map(PRODUCTOS_INICIALES.map(producto => [
+    'img/' + producto.imagen.split('/').pop(), producto.imagen
+]));
+
+export function resolverImagenMenu(ruta) {
+    return rutasAnteriores.get(ruta) ?? ruta;
+}
 
 const normalizarFecha = value => {
     if (!value) return new Date();
@@ -27,7 +36,7 @@ const normalizarProducto = raw => ({
     nombre: raw.nombre ?? raw.name ?? 'Producto',
     categoria: raw.categoria ?? raw.category ?? 'Otros',
     precio: Number(raw.precio ?? raw.price ?? 0),
-    imagen: raw.imagen ?? raw.image ?? 'img/pupusa-revuelta.png',
+    imagen: resolverImagenMenu(raw.imagen ?? raw.image ?? 'img/menú/pupusa-revuelta.png'),
     descripcion: raw.descripcion ?? raw.description ?? '',
     activo: raw.activo ?? raw.active ?? true
 });

@@ -1,4 +1,4 @@
-import { obtenerProductos, leerSesion } from './saborexpress-data.js';
+import { obtenerProductos, leerSesion, resolverImagenMenu } from './saborexpress-data.js';
 
 const state = {
     productos: [],
@@ -23,7 +23,9 @@ function leerCarrito() {
             }
         }
         const carrito = JSON.parse(localStorage.getItem('saborExpressCart'));
-        return Array.isArray(carrito) ? carrito : [];
+        return Array.isArray(carrito) ? carrito.map(item => ({
+            ...item, imagen: resolverImagenMenu(item.imagen)
+        })) : [];
     } catch {
         return [];
     }
