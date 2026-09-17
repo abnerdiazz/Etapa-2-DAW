@@ -1,0 +1,5 @@
+# Configuracion privada local
+.env
+.env.*
+!.env.example
+/js/firebase-env.js

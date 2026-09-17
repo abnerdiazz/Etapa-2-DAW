@@ -1,0 +1,364 @@
+/* Estilos exclusivos de menu, reportes y acceso administrativo. */
+.brand-logo { width:48px; height:48px; object-fit:contain; flex-shrink:0; }
+body { padding-top:0; }
+/* ========================================================================== */
+/* SaborExpress · Etapa 2 · Menú + Reportes (paleta de los mockups de Figma)  */
+/* ========================================================================== */
+:root {
+    --se-primary: #CE4B31;
+    --se-primary-dark: #B83D27;
+    --se-primary-soft: #F6EAE4;
+    --se-bg: #FBF8F3;
+    --se-surface: #FFFFFF;
+    --se-text: #272421;
+    --se-muted: #746F69;
+    --se-border: #E9D8BF;
+    --se-green: #4F7058;
+    --se-green-soft: #E9F0EA;
+    --se-shadow: 0 10px 28px rgba(63, 47, 36, .06);
+}
+
+.store-page,
+.admin-page {
+    background: var(--se-bg);
+    color: var(--se-text);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.store-navbar {
+    min-height: 78px;
+    background: rgba(255,255,255,.98);
+    border-bottom: 1px solid var(--se-border);
+}
+
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--se-primary);
+    color: #fff;
+    flex: 0 0 auto;
+}
+
+.mini-brand { width: 28px; height: 28px; border-radius: 8px; font-size: .7rem; }
+.brand-name { color: var(--se-text); font-weight: 800; font-size: 1.35rem; letter-spacing: -.03em; }
+.store-navbar .nav-link { color: #5f5a54; font-weight: 500; padding-inline: .9rem !important; }
+.store-navbar .nav-link:hover,
+.store-navbar .nav-link.active { color: var(--se-primary); }
+.store-navbar .nav-link.active { border-bottom: 2px solid var(--se-primary); }
+
+.cart-pill {
+    background: var(--se-primary-soft);
+    border-radius: 999px;
+    color: var(--se-primary) !important;
+    font-weight: 700 !important;
+    border-bottom: 0 !important;
+}
+
+.account-link {
+    color: var(--se-text);
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    white-space: nowrap;
+}
+
+.account-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--se-primary);
+    color: var(--se-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.store-main { min-height: calc(100vh - 78px); padding-top: 125px; padding-bottom: 40px; }
+.page-title { margin: 0 0 .25rem; text-align: left; font-size: clamp(2rem, 4vw, 2.4rem); font-weight: 850; letter-spacing: -.04em; }
+.page-subtitle { color: var(--se-muted); margin: 0; }
+.search-box { position: relative; }
+.search-box > i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--se-muted); z-index: 2; }
+.search-box .form-control { padding-left: 2.7rem; min-height: 45px; border-color: var(--se-border); border-radius: 11px; background: #fff; }
+.search-box .form-control:focus { border-color: var(--se-primary); box-shadow: 0 0 0 .2rem rgba(206,75,49,.12); }
+
+.category-filter { display: flex; gap: .75rem; flex-wrap: wrap; }
+.category-filter .btn { min-width: 82px; border: 1px solid var(--se-border); border-radius: 999px; background: #fff; color: #69635e; font-weight: 700; padding: .55rem 1.15rem; }
+.category-filter .btn:hover,
+.category-filter .btn.active { background: var(--se-primary); color: #fff; border-color: var(--se-primary); }
+
+.menu-product-card { background: var(--se-surface); border: 1px solid var(--se-border); border-radius: 17px; padding: 18px; box-shadow: 0 1px 0 rgba(0,0,0,.01); display: flex; flex-direction: column; }
+.menu-product-image-wrap { position: relative; }
+.menu-product-image { width: 100%; height: 162px; object-fit: cover; border-radius: 13px; display: block; }
+.menu-price-badge { position: absolute; top: 12px; right: 12px; background: var(--se-primary); color: white; font-weight: 700; font-size: .82rem; padding: .35rem .55rem; border-radius: 6px; }
+.menu-product-body { padding-top: 15px; display: flex; flex-direction: column; flex: 1; }
+.menu-product-title { font-size: 1.1rem; font-weight: 800; margin: 0 0 .35rem; }
+.menu-product-description { color: var(--se-muted); line-height: 1.35; font-size: .86rem; min-height: 2.4rem; }
+
+.quantity-control { border: 1px solid var(--se-border); border-radius: 9px; height: 42px; display: inline-flex; align-items: center; overflow: hidden; background: #fff; }
+.quantity-control button { width: 38px; height: 40px; border: 0; background: transparent; color: var(--se-text); font-weight: 800; }
+.quantity-control button:hover { background: var(--se-primary-soft); color: var(--se-primary); }
+.quantity-control span { min-width: 28px; text-align: center; font-weight: 700; }
+.btn-brand { background: var(--se-primary); border-color: var(--se-primary); color: #fff; font-weight: 700; }
+.btn-brand:hover, .btn-brand:focus { background: var(--se-primary-dark); border-color: var(--se-primary-dark); color: #fff; }
+.text-brand { color: var(--se-primary) !important; }
+.surface-card { background: #fff; border: 1px solid var(--se-border); border-radius: 15px; }
+
+.pagination .page-link { color: var(--se-primary); border-color: var(--se-border); }
+.pagination .page-item.active .page-link { background: var(--se-primary); border-color: var(--se-primary); color: #fff; }
+.store-footer { background: #272421; color: #fff; }
+.data-status { display: inline-flex; align-items: center; gap: .35rem; font-size: .76rem; font-weight: 700; padding: .28rem .6rem; border-radius: 999px; }
+.data-status.success { background: var(--se-green-soft); color: var(--se-green); }
+.data-status.warning { background: #FFF2D8; color: #88631E; }
+.data-status.error { background: #FBE6E2; color: #A23D2F; }
+
+/* Admin reportes */
+.admin-sidebar { position: fixed; inset: 0 auto 0 0; width: 240px; background: #fff; border-right: 1px solid var(--se-border); display: flex; flex-direction: column; padding: 1.7rem 1.3rem; z-index: 1040; }
+.admin-brand-subtitle { color: var(--se-primary); font-size: .68rem; font-weight: 800; }
+.admin-nav { margin-top: 2rem; display: grid; gap: .45rem; }
+.admin-nav .nav-link { display: flex; align-items: center; gap: .8rem; color: var(--se-text); border-radius: 10px; padding: .75rem .85rem; font-weight: 600; }
+.admin-nav .nav-link:hover,
+.admin-nav .nav-link.active { background: var(--se-primary-soft); color: var(--se-primary); }
+.admin-user { margin-top: auto; border-top: 1px solid var(--se-border); padding-top: 1rem; }
+.admin-main { margin-left: 240px; min-height: 100vh; }
+.admin-topbar { min-height: 86px; padding: 1rem 2.5rem; display: flex; align-items: center; gap: 1.25rem; background: #fff; border-bottom: 1px solid var(--se-border); }
+.admin-content { padding: 2rem 2.5rem 3rem; }
+.admin-title { margin: 0; text-align: left; font-size: clamp(1.65rem, 3vw, 2.1rem); font-weight: 850; letter-spacing: -.04em; }
+.report-search-box { width: min(280px, 28vw); }
+.icon-button { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--se-border); border-radius: 9px; background: var(--se-bg); color: var(--se-text); }
+.range-toolbar { padding: 1rem 1.2rem; display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+.range-chip { border: 1px solid var(--se-border); background: var(--se-bg); color: var(--se-muted); border-radius: 8px; font-size: .82rem; font-weight: 700; padding: .45rem .8rem; }
+.range-chip.active { color: var(--se-primary); background: var(--se-primary-soft); border-color: transparent; }
+.metric-card { height: 100%; padding: 1.25rem 1.2rem; }
+.metric-label { color: var(--se-muted); font-size: .76rem; font-weight: 800; text-transform: uppercase; margin-bottom: .55rem; }
+.metric-value { font-size: 1.8rem; line-height: 1; font-weight: 850; letter-spacing: -.03em; }
+.metric-value.primary { color: var(--se-primary); }
+.metric-value.green { color: var(--se-green); }
+.metric-product { font-size: 1.55rem; }
+.report-panel { padding: 1.4rem; height: 100%; }
+.report-panel-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 1rem; }
+.chart-container { position: relative; height: 220px; }
+.product-progress-row + .product-progress-row { margin-top: .9rem; }
+.product-progress-label { display: flex; justify-content: space-between; gap: 1rem; font-size: .78rem; margin-bottom: .3rem; }
+.product-progress-label strong:last-child { color: var(--se-primary); }
+.thin-progress { height: 8px; border-radius: 999px; background: #F2EEE8; overflow: hidden; }
+.thin-progress > span { display: block; height: 100%; background: var(--se-green); border-radius: inherit; }
+.admin-table { margin-bottom: 0; }
+.admin-table thead th { background: var(--se-bg); color: var(--se-muted); text-transform: uppercase; font-size: .75rem; border-bottom: 0; padding: .8rem 1rem; }
+.admin-table tbody td { padding: .9rem 1rem; border-color: #EFE5D9; }
+.sidebar-toggle { display: none; }
+.admin-sidebar-backdrop { display: none; }
+
+@media (max-width: 991.98px) {
+    .store-navbar .nav-link.active { border-bottom: 0; }
+    .store-main { padding-top: 105px; }
+    .admin-sidebar { transform: translateX(-100%); transition: transform .2s ease; }
+    .admin-sidebar.show { transform: translateX(0); }
+    .admin-main { margin-left: 0; }
+    .admin-topbar { padding: 1rem 1.25rem; }
+    .admin-content { padding: 1.5rem 1rem 2.5rem; }
+    .sidebar-toggle { display: inline-flex; }
+    .admin-sidebar-backdrop.show { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 1035; }
+}
+
+@media (max-width: 575.98px) {
+    .menu-product-image { height: 150px; }
+    .page-title { font-size: 1.9rem; }
+    .category-filter { gap: .5rem; }
+    .category-filter .btn { min-width: auto; padding: .48rem .85rem; }
+    .report-search-box { display: none; }
+    .metric-value { font-size: 1.4rem; }
+    .metric-product { font-size: 1.2rem; }
+    .range-toolbar { align-items: stretch; }
+}
+
+/* ========================================================================== */
+/* Admin · navegación superior inspirada en el wireframe de Etapa 1           */
+/* ========================================================================== */
+.admin-wireframe-page {
+    min-height: 100vh;
+    background: #fff;
+    color: var(--se-text);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.admin-wireframe-navbar {
+    min-height: 64px;
+    background: rgba(255,255,255,.98);
+    border-bottom: 1px solid #D9D5CF;
+    box-shadow: 0 1px 0 rgba(0,0,0,.02);
+}
+
+.admin-wireframe-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    color: var(--se-text);
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.admin-wireframe-brand:hover { color: var(--se-text); }
+
+.admin-wireframe-logo {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid #8B8782;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    color: var(--se-primary);
+}
+
+.admin-wireframe-navbar .nav-link {
+    color: #6E6964;
+    font-size: .92rem;
+    padding: .65rem .9rem !important;
+    border: 1px solid transparent;
+}
+
+.admin-wireframe-navbar .nav-link:hover { color: var(--se-primary); }
+.admin-wireframe-navbar .nav-link.active {
+    color: var(--se-text);
+    font-weight: 700;
+    border-color: #AAA49E;
+    background: #FAF9F7;
+}
+
+.admin-account-btn {
+    color: var(--se-text);
+    border: 0;
+    background: transparent;
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.admin-account-btn:hover,
+.admin-account-btn:focus { color: var(--se-primary); }
+
+.admin-wireframe-main {
+    padding: 3.1rem 0 4rem;
+}
+
+.admin-wireframe-main > .container-fluid { max-width: 1375px; }
+
+.admin-wireframe-title {
+    margin: 0 0 .25rem;
+    text-align: left;
+    font-size: clamp(1.7rem, 3vw, 2rem);
+    font-weight: 850;
+    letter-spacing: -.03em;
+}
+
+.admin-wireframe-subtitle {
+    margin: 0;
+    color: var(--se-muted);
+    font-size: .95rem;
+}
+
+.wireframe-metric-card {
+    min-height: 98px;
+    border-radius: 0;
+    border-color: #AAA49E;
+}
+
+.wireframe-metric-card .metric-value { color: #161616; }
+.wireframe-metric-card .metric-value.primary { color: var(--se-primary); }
+
+.metric-footnote {
+    color: var(--se-muted);
+    font-size: .75rem;
+    margin-top: .55rem;
+}
+
+.wireframe-chart-panel {
+    border-radius: 0;
+    border-color: #AAA49E;
+    min-height: 315px;
+}
+
+.wireframe-chart-container { height: 260px; }
+.admin-report-search { width: min(220px, 50vw); }
+.admin-report-search .form-control { min-height: 34px; }
+
+/* Login administrador */
+.admin-login-page {
+    min-height: 100vh;
+    margin: 0;
+    background: #F7F5F2;
+    color: var(--se-text);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.admin-login-shell {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+}
+
+.admin-login-card {
+    width: min(100%, 420px);
+    background: #fff;
+    border: 1px solid var(--se-border);
+    border-radius: 16px;
+    box-shadow: var(--se-shadow);
+    padding: 2rem;
+}
+
+.admin-login-brand {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.admin-login-brand strong { display: block; font-size: 1.12rem; }
+.admin-login-brand small { display: block; color: var(--se-primary); font-size: .72rem; text-transform: uppercase; font-weight: 800; letter-spacing: .04em; }
+
+.admin-login-title {
+    text-align: left;
+    margin: 0 0 .35rem;
+    font-size: 1.75rem;
+    font-weight: 850;
+}
+
+.admin-demo-credentials {
+    display: grid;
+    gap: .35rem;
+    background: var(--se-bg);
+    border: 1px solid var(--se-border);
+    border-radius: 10px;
+    padding: .85rem 1rem;
+    font-size: .8rem;
+}
+
+.admin-demo-credentials code { color: var(--se-primary-dark); }
+.admin-back-store {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: var(--se-muted);
+    text-decoration: none;
+    font-size: .85rem;
+}
+.admin-back-store:hover { color: var(--se-primary); }
+
+@media (max-width: 991.98px) {
+    .admin-wireframe-navbar .nav-link.active {
+        border-color: transparent;
+        border-left: 3px solid var(--se-primary);
+        background: var(--se-primary-soft);
+    }
+    .admin-wireframe-main { padding-top: 2rem; }
+}
+
+@media (max-width: 575.98px) {
+    .admin-login-card { padding: 1.4rem; }
+    .admin-report-search { width: 100%; }
+    .wireframe-chart-container { height: 220px; }
+}
