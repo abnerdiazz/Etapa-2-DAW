@@ -162,3 +162,159 @@ p, .card-text { font-weight: 400; font-size: 0.95rem; }
   object-fit: cover;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
+
+/* ---------- PÁGINA DE CONTACTO ---------- */
+
+/* Etiquetas del formulario (NOMBRE, CORREO, etc.) */
+.contact-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Inputs y textarea del formulario */
+.form-control {
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  padding-left: 0;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--color-primary);
+}
+.form-control::placeholder {
+  color: var(--color-muted);
+  opacity: 0.7;
+}
+
+/* Íconos de la columna "Información de Contacto" */
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+/* Preguntas Frecuentes (acordeón) */
+.accordion-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+.accordion-button {
+  font-weight: 700;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+.accordion-button:not(.collapsed) {
+  color: var(--color-primary);
+  background-color: var(--color-primary-soft);
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.15rem var(--color-primary-soft);
+  border-color: var(--color-border);
+}
+.accordion-button::after {
+  filter: none;
+}
+
+/* Bloque de mapa/ubicación */
+.map-placeholder {
+  background-color: var(--color-primary-soft) !important;
+  border: 1px dashed var(--color-border);
+  color: var(--color-muted) !important;
+  border-radius: 12px;
+} /* ---------- ADMIN: NAVBAR ---------- */
+.admin-navbar {
+  background-color: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border);
+}
+.admin-logo-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-text);
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+.admin-nav-link {
+  color: var(--color-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  margin-left: 0.25rem;
+}
+.admin-nav-link:hover {
+  color: var(--color-text);
+}
+
+.admin-nav-link.active {
+  background-color: var(--color-primary-soft);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* ---------- ADMIN: TABLA DE PEDIDOS ---------- */
+.admin-table {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+.admin-table thead {
+  background-color: var(--color-primary-soft);
+}
+.admin-table thead th {
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--color-border);
+}
+.admin-table tbody td {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Badges de estado */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.status-entregado {
+  background-color: #E3F2E7;
+  color: #2E7D42;
+}
+.status-preparando {
+  background-color: #FDF0DC;
+  color: #B8760F;
+}
+.status-pendiente {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
