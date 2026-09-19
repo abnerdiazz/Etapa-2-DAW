@@ -53,14 +53,14 @@ Los datos se guardan solo en el navegador utilizado y no se comparten entre equi
 - `admin-reportes.html` y `js/admin-reportes.js`: vista y funciones de reportes.
 - `admin-login.html` y `js/admin-login.js`: acceso simulado para probar reportes.
 - `js/saborexpress-data.js`: productos, pedidos de prueba y lectura de sesión.
-- `menu-reportes.css`: estilos de estas vistas, junto con `styles.css` del proyecto.
+- `css/menu-reportes.css`: estilos de estas vistas, junto con `styles.css` del proyecto.
 - `img/menú/`: imágenes del catálogo. El logo permanece en `img/logo.png`.
 
 ## Organización del código
 
 Las páginas HTML cargan sus módulos JavaScript con `type="module"`. El archivo `js/saborexpress-data.js` centraliza la lectura de productos, pedidos y sesión. El menú y los reportes usan esos datos para actualizar la pantalla mediante el DOM.
 
-La lógica de búsqueda, filtros, totales y CSV está escrita en JavaScript vanilla. Bootstrap 5.3.3 aporta el diseño responsive, los modales y las notificaciones; Bootstrap Icons 1.11.3 aporta los iconos y Chart.js 4.4.4 dibuja la gráfica. Los estilos propios están en `menu-reportes.css`.
+La lógica de búsqueda, filtros, totales y CSV está escrita en JavaScript vanilla. Bootstrap 5.3.3 aporta el diseño responsive, los modales y las notificaciones; Bootstrap Icons 1.11.3 aporta los iconos y Chart.js 4.4.4 dibuja la gráfica. Los estilos propios están en `css/menu-reportes.css`.
 
 El carrito de este módulo permite agregar y conservar productos. El proceso de compra y la administración de pedidos corresponden a otras partes del proyecto.
 
