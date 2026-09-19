@@ -112,6 +112,14 @@ body { padding-top:0; }
 .pagination .page-link { color: var(--se-primary); border-color: var(--se-border); }
 .pagination .page-item.active .page-link { background: var(--se-primary); border-color: var(--se-primary); color: #fff; }
 .store-footer { background: #272421; color: #fff; }
+.site-footer {
+    background-color: var(--se-text);
+    color: var(--se-bg);
+    padding: 2rem 1rem 1.5rem;
+}
+.site-footer a { color: var(--se-bg); }
+.site-footer a:hover { color: var(--se-primary); }
+.site-footer p { margin-bottom: 0.4rem; opacity: 0.92; }
 .data-status { display: inline-flex; align-items: center; gap: .35rem; font-size: .76rem; font-weight: 700; padding: .28rem .6rem; border-radius: 999px; }
 .data-status.success { background: var(--se-green-soft); color: var(--se-green); }
 .data-status.warning { background: #FFF2D8; color: #88631E; }
