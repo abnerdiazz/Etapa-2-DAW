@@ -4,161 +4,175 @@
     <meta charset="UTF-8">
     <title>SaborExpress - Nosotros</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/inicio-nosotros.css">
 </head>
-<body>
+<body class="store-page">
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top site-navbar">
+        <nav class="navbar navbar-expand-lg store-navbar fixed-top">
             <div class="container">
-                <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html"><span class="navbar-logo-icon me-2">🍴</span>SaborExpress</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                    <img src="img/logo.png" alt="Logo de SaborExpress" class="brand-logo">
+                    <span class="brand-name">SaborExpress</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#storeMenu" aria-controls="storeMenu" aria-expanded="false" aria-label="Abrir navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav mx-auto align-items-lg-center">
+                <div class="collapse navbar-collapse" id="storeMenu">
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-2">
                         <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="nosotros.html" aria-current="page">Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="mis-pedidos.html">Mis Pedidos</a></li>
-                        <li class="nav-item"><a class="nav-cart-pill" href="carrito.html"><i class="bi bi-cart3"></i> Carrito</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link cart-pill" href="carrito.html">
+                                <i class="bi bi-cart3 me-1"></i> Carrito (<span data-cart-count>0</span>)
+                            </a>
+                        </li>
                     </ul>
-                    <div class="d-flex align-items-center gap-2 ms-lg-3">
-                        <a class="nav-link mb-0" href="login.html">Mi cuenta / Iniciar sesión</a>
-                        <span class="nav-avatar"><i class="bi bi-person"></i></span>
-                    </div>
+                    <a class="account-link mt-3 mt-lg-0" href="login.html" data-account-link>
+                        <span class="account-icon"><i class="bi bi-person"></i></span>
+                        <span data-account-label>Mi cuenta</span>
+                    </a>
                 </div>
             </div>
         </nav>
     </header>
-    <br>
 
-    <!-- Nuestra Historia -->
-    <section class="container pt-5">
-        <div class="row align-items-center g-4">
-            <div class="col-lg-6">
-                <h1 class="fw-bold">Nuestra Historia</h1>
-                <p>Conoce el origen de SaborExpress, una tradición familiar de pupusas hechas con amor y dedicación salvadoreña para alegrar cada mesa.</p>
-            </div>
-            <div class="col-lg-6">
-                <img src="img/nosotros/historia.jpg" class="img-fluid rounded-3 story-photo" alt="Historia de SaborExpress">
-            </div>
-        </div>
-    </section>
+    <main class="store-main">
+        <div class="container">
 
-    <!-- Nuestra Tradición Familiar -->
-    <section class="container py-5">
-        <div class="row align-items-center g-4">
-            <div class="col-lg-6">
-                <img src="img/nosotros/primer-local.jpg" class="img-fluid rounded-3 story-photo" alt="Nuestro primer local">
-            </div>
-            <div class="col-lg-6">
-                <h2 class="fw-bold">Nuestra Tradición Familiar</h2>
-                <p>En SaborExpress nos dedicamos a mantener viva la tradición culinaria salvadoreña. Cada una de nuestras pupusas es elaborada a mano al momento, utilizando materias primas de la más alta calidad y un riguroso estándar de higiene.</p>
-                <p>Nacimos con el propósito de llevar la calidez y el sabor del hogar directamente a tu mesa, garantizando una experiencia deliciosa y confiable en cada entrega. Nos enorgullecemos de heredar recetas clásicas de generación en generación.</p>
-            </div>
-        </div>
-    </section>
+            <!-- Nuestra Historia -->
+            <section class="pt-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <h1 class="page-title mb-3">Nuestra Historia</h1>
+                        <p class="section-text"> Conoce el origen de **SaborExpress**, una tradición familiar que 
+                            nace del amor por la gastronomía salvadoreña y el deseo de compartir nuestras deliciosas 
+                            pupusas con cada familia. Desde nuestros inicios, hemos trabajado con dedicación, 
+                            ingredientes de calidad y ese toque especial que caracteriza a la cocina hecha en casa. 
+                            Cada pupusa es preparada con esmero, conservando los sabores y las tradiciones de nuestra 
+                            tierra. En SaborExpress, creemos que la comida no solo alimenta, sino que también une 
+                            corazones, crea recuerdos y alegra cada mesa. ❤️🇸🇻
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="img/nosotros/historia.jpg" class="story-photo" alt="Historia de SaborExpress">
+                    </div>
+                </div>
+            </section>
 
-    <!-- Misión, Visión y Valores -->
-    <section class="container py-5">
-        <h2 class="fw-bold">Misión, Visión y Valores</h2>
-        <p>Los pilares que sostienen nuestro compromiso con el sabor y la calidad en cada entrega de pupusas.</p>
-        <div class="row g-4 mt-2">
-            <div class="col-md-4">
-                <div class="card shadow-sm rounded-3 h-100 p-4">
-                    <div class="card-body text-center">
-                        <img src="img/nosotros/mision.png" alt="Icono Misión" class="mb-2" style="width:56px;height:56px;object-fit:contain;">
-                        <h5 class="card-title">Misión</h5>
-                        <p class="card-text small text-start">Llevar la mejor experiencia tradicional salvadoreña a los hogares con un servicio rápido, higiénico y con el sazón casero intacto.</p>
+            <!-- Nuestra Tradición Familiar -->
+            <section class="py-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <img src="img/nosotros/primer-local.jpg" class="story-photo" alt="Nuestro primer local">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="section-title mb-3">Nuestra Tradición Familiar</h2>
+                        <p class="section-text">En SaborExpress nos dedicamos a mantener viva la tradición culinaria salvadoreña. Cada una de nuestras pupusas es elaborada a mano al momento, utilizando materias primas de la más alta calidad y un riguroso estándar de higiene.</p>
+                        <p class="section-text">Nacimos con el propósito de llevar la calidez y el sabor del hogar directamente a tu mesa, garantizando una experiencia deliciosa y confiable en cada entrega. Nos enorgullecemos de heredar recetas clásicas de generación en generación.</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm rounded-3 h-100 p-4">
-                    <div class="card-body text-center">
-                        <img src="img/nosotros/vision.png" alt="Icono Visión" class="mb-2" style="width:56px;height:56px;object-fit:contain;">
-                        <h5 class="card-title">Visión</h5>
-                        <p class="card-text small text-start">Convertirnos en la pupusería líder de entrega a domicilio a nivel nacional, siendo reconocidos por nuestra innovación constante y fidelidad al sabor original.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm rounded-3 h-100 p-4">
-                    <div class="card-body text-center">
-                        <img src="img/nosotros/valores.png" alt="Icono Valores" class="mb-2" style="width:56px;height:56px;object-fit:contain;">
-                        <h5 class="card-title">Valores</h5>
-                        <p class="card-text small text-start">Calidad artesanal, integridad en nuestros insumos, amabilidad en la entrega y respeto absoluto por la herencia culinaria de nuestro país.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Galería del Restaurante -->
-    <section class="container py-5">
-        <h2 class="fw-bold">Galería del Restaurante</h2>
-        <p>Un vistazo a nuestro ambiente cálido, nuestros procesos de cocina higiénica y la preparación diaria de tus pupusas favoritas.</p>
-        <div class="row g-3 mt-2">
-            <div class="col-6 col-md-4"><img src="img/nosotros/parrilla.jpg" class="img-fluid rounded-3" alt="NUESTRA PARRILLA"></div>
-            <div class="col-6 col-md-4"><img src="img/nosotros/ingredientes.jpg" class="img-fluid rounded-3" alt="INGREDIENTES FRESCOS"></div>
-            <div class="col-6 col-md-4"><img src="img/nosotros/salon.jpg" class="img-fluid rounded-3" alt="SALÓN FAMILIAR"></div>
-            <div class="col-6 col-md-4"><img src="img/nosotros/preparacion-masa.jpg" class="img-fluid rounded-3" alt="PREPARACIÓN DE MASA"></div>
-            <div class="col-6 col-md-4"><img src="img/nosotros/empaque.jpg" class="img-fluid rounded-3" alt="EMPAQUE TÉRMICO"></div>
-            <div class="col-6 col-md-4"><img src="img/nosotros/motoristas.jpg" class="img-fluid rounded-3" alt="MOTORISTAS EXPRESS"></div>
-        </div>
-    </section>
+            <!-- Misión, Visión y Valores -->
+            <section class="py-5">
+                <h2 class="section-title">Misión, Visión y Valores</h2>
+                <p class="page-subtitle">Los pilares que sostienen nuestro compromiso con el sabor y la calidad en cada entrega de pupusas.</p>
+                <div class="row g-4 mt-2">
+                    <div class="col-md-4">
+                        <div class="surface-card h-100 p-4 text-center">
+                            <img src="img/nosotros/mision.png" alt="Icono Misión" class="value-icon mb-2">
+                            <h3 class="menu-product-title">Misión</h3>
+                            <p class="menu-product-description text-start mb-0">Llevar la mejor experiencia tradicional salvadoreña a los hogares con un servicio rápido, higiénico y con el sazón casero intacto.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="surface-card h-100 p-4 text-center">
+                            <img src="img/nosotros/vision.png" alt="Icono Visión" class="value-icon mb-2">
+                            <h3 class="menu-product-title">Visión</h3>
+                            <p class="menu-product-description text-start mb-0">Convertirnos en la pupusería líder de entrega a domicilio a nivel nacional, siendo reconocidos por nuestra innovación constante y fidelidad al sabor original.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="surface-card h-100 p-4 text-center">
+                            <img src="img/nosotros/valores.png" alt="Icono Valores" class="value-icon mb-2">
+                            <h3 class="menu-product-title">Valores</h3>
+                            <p class="menu-product-description text-start mb-0">Calidad artesanal, integridad en nuestros insumos, amabilidad en la entrega y respeto absoluto por la herencia culinaria de nuestro país.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Nuestro Equipo -->
-    <section class="container pb-5">
-        <h2 class="fw-bold">Nuestro Equipo</h2>
-        <p>Conoce a las personas dedicadas a garantizar la máxima calidad y sabor en cada pedido que realizas.</p>
-        <div class="row g-4 mt-2">
-            <div class="col-6 col-md-3">
-                <div class="card shadow-sm rounded-3 h-100">
-                    <img src="img/nosotros/teresa.jpg" class="card-img-top rounded-top-3 team-photo" alt="Doña Teresa Ortiz">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Doña Teresa Ortiz</h5>
-                        <p class="mb-1"><small>Maestra Pupusera Principal</small></p>
-                        <p class="card-text small">Más de 20 años dándole forma a las mejores pupusas de maíz y arroz del país.</p>
+            <!-- Galería del Restaurante -->
+            <section class="py-5">
+                <h2 class="section-title">Galería del Restaurante</h2>
+                <p class="page-subtitle">Un vistazo a nuestro ambiente cálido, nuestros procesos de cocina higiénica y la preparación diaria de tus pupusas favoritas.</p>
+                <div class="row g-3 mt-2">
+                    <div class="col-6 col-md-4"><img src="img/nosotros/parrilla.jpg" class="gallery-photo" alt="Nuestra parrilla"></div>
+                    <div class="col-6 col-md-4"><img src="img/nosotros/ingredientes.jpg" class="gallery-photo" alt="Ingredientes frescos"></div>
+                    <div class="col-6 col-md-4"><img src="img/nosotros/salon.jpg" class="gallery-photo" alt="Salón familiar"></div>
+                    <div class="col-6 col-md-4"><img src="img/nosotros/preparacion-masa.jpg" class="gallery-photo" alt="Preparación de masa"></div>
+                    <div class="col-6 col-md-4"><img src="img/nosotros/empaque.jpg" class="gallery-photo" alt="Empaque térmico"></div>
+                    <div class="col-6 col-md-4"><img src="img/nosotros/motoristas.jpg" class="gallery-photo" alt="Motoristas Express"></div>
+                </div>
+            </section>
+
+            <!-- Nuestro Equipo -->
+            <section class="pb-5">
+                <h2 class="section-title">Nuestro Equipo</h2>
+                <p class="page-subtitle">Conoce a las personas dedicadas a garantizar la máxima calidad y sabor en cada pedido que realizas.</p>
+                <div class="row g-4 mt-2">
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/nosotros/teresa.jpg" class="menu-product-image team-photo" alt="Doña Teresa Ortiz">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title mb-0">Doña Teresa Ortiz</h3>
+                                <p class="team-role">Maestra Pupusera Principal</p>
+                                <p class="menu-product-description">Más de 20 años dándole forma a las mejores pupusas de maíz y arroz del país.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/nosotros/carlos.jpg" class="menu-product-image team-photo" alt="Carlos Mendoza">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title mb-0">Carlos Mendoza</h3>
+                                <p class="team-role">Chef de Control de Calidad</p>
+                                <p class="menu-product-description">Asegura que los curtidos, salsas e ingredientes mantengan el estándar tradicional.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/nosotros/sofia.jpg" class="menu-product-image team-photo" alt="Sofía Martínez">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title mb-0">Sofía Martínez</h3>
+                                <p class="team-role">Gerente de Logística de Entrega</p>
+                                <p class="menu-product-description">Supervisa que tu orden salga caliente y llegue rápida a cualquier rincón de la ciudad.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/nosotros/julio.jpg" class="menu-product-image team-photo" alt="Julio Espinoza">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title mb-0">Julio Espinoza</h3>
+                                <p class="team-role">Atención al Cliente y Recepción</p>
+                                <p class="menu-product-description">El enlace directo que garantiza que tus peticiones especiales de ingredientes se cumplan.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="card shadow-sm rounded-3 h-100">
-                    <img src="img/nosotros/carlos.jpg" class="card-img-top rounded-top-3 team-photo" alt="Carlos Mendoza">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Carlos Mendoza</h5>
-                        <p class="mb-1"><small>Chef de Control de Calidad</small></p>
-                        <p class="card-text small">Asegura que los curtidos, salsas e ingredientes mantengan el estándar tradicional.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="card shadow-sm rounded-3 h-100">
-                    <img src="img/nosotros/sofia.jpg" class="card-img-top rounded-top-3 team-photo" alt="Sofía Martínez">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Sofía Martínez</h5>
-                        <p class="mb-1"><small>Gerente de Logística de Entrega</small></p>
-                        <p class="card-text small">Supervisa que tu orden salga caliente y llegue rápida a cualquier rincón de la ciudad.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="card shadow-sm rounded-3 h-100">
-                    <img src="img/nosotros/julio.jpg" class="card-img-top rounded-top-3 team-photo" alt="Julio Espinoza">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Julio Espinoza</h5>
-                        <p class="mb-1"><small>Atención al Cliente y Recepción</small></p>
-                        <p class="card-text small">El enlace directo que garantiza que tus peticiones especiales de ingredientes se cumplan.</p>
-                    </div>
-                </div>
-            </div>
+            </section>
+
         </div>
-    </section>
+    </main>
 
     <footer class="site-footer text-center p-2">
         <p>Síguenos en:</p>
@@ -173,7 +187,7 @@
         <p>&copy; 2026 SaborExpress</p>
     </footer>
 
-    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/inicio-nosotros.js"></script>
 </body>
 </html>
