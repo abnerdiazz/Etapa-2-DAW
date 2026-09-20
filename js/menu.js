@@ -44,16 +44,17 @@ function actualizarContadorCarrito() {
 // Pinta el menu de la cuenta segun si hay sesion activa o no.
 function actualizarUsuario() {
     const sesion = leerSesion();
+    // Solo se muestra como "logueado" si la sesion es de un cliente.
+    // Una sesion de admin activa no debe reflejarse en las vistas del cliente.
+    const esCliente = Boolean(sesion && sesion.role === 'cliente');
     const label = document.querySelector('[data-account-label]');
     const menu = document.querySelector('[data-account-menu]');
     if (!label || !menu) return;
 
-    if (sesion) {
+    if (esCliente) {
         label.textContent = sesion.name?.split(' ')[0] || 'Mi cuenta';
-        const destino = sesion.role === 'admin' ? 'admin-reportes.html' : 'mis-pedidos.html';
-        const textoDestino = sesion.role === 'admin' ? 'Panel administrativo' : 'Mis Pedidos';
         menu.innerHTML = `
-            <li><a class="dropdown-item" href="${destino}"><i class="bi bi-receipt me-2"></i>${textoDestino}</a></li>
+            <li><a class="dropdown-item" href="mis-pedidos.html"><i class="bi bi-receipt me-2"></i>Mis Pedidos</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><button class="dropdown-item text-danger" type="button" data-logout-client><i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión</button></li>
         `;
