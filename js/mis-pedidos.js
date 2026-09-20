@@ -1,8 +1,11 @@
 /* ============================================
-   SaborExpress · Etapa 2 · Contacto
+   SaborExpress · Mis Pedidos
+   Antes esta página no cargaba ningún script, por eso
+   perdía el nombre de la sesión y el contador del carrito
+   al llegar aquí. Este archivo sincroniza el navbar igual
+   que en el resto de páginas del sitio.
    ============================================ */
 
-// Lee la sesión guardada por el login (misma clave que usa el resto del sitio).
 function leerSesion() {
     try {
         return JSON.parse(localStorage.getItem('saborExpressSession'));
@@ -63,21 +66,9 @@ function actualizarUsuario() {
     }
 }
 
-// Envío del formulario de contacto (simulado, sin backend todavía)
-function initFormulario() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('¡Gracias por tu mensaje! Te responderemos pronto.');
-        form.reset();
-    });
-}
-
 function init() {
     actualizarContadorCarrito();
     actualizarUsuario();
-    initFormulario();
 }
 
 document.addEventListener('DOMContentLoaded', init);

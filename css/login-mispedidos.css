@@ -13,7 +13,7 @@
 .login-logo {
   width: 56px;
   height: 56px;
-  background-color: var(--color-primary);
+  background-color: var(--se-primary);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -35,37 +35,37 @@
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   font-weight: 700;
-  color: var(--color-muted);
+  color: var(--se-muted);
   text-transform: uppercase;
   margin-bottom: 0.35rem;
 }
 
 /* Inputs con fondo suave, sin el look por defecto de Bootstrap */
 .form-control-soft {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background-color: var(--se-bg);
+  border: 1px solid var(--se-border);
   border-radius: 10px;
   padding: 0.65rem 0.9rem;
   font-size: 0.9rem;
-  color: var(--color-text);
+  color: var(--se-text);
 }
 .form-control-soft::placeholder {
-  color: var(--color-muted);
+  color: var(--se-muted);
 }
 .form-control-soft:focus {
-  background-color: var(--color-surface);
-  border-color: var(--color-primary);
+  background-color: var(--se-surface);
+  border-color: var(--se-primary);
   box-shadow: 0 0 0 0.2rem rgba(206, 75, 49, 0.15);
 }
 
 /* Link "Crear cuenta" */
 .login-link {
-  color: var(--color-primary);
+  color: var(--se-primary);
   font-weight: 700;
   text-decoration: none;
 }
 .login-link:hover {
-  color: var(--color-primary-dark);
+  color: var(--se-primary-dark);
   text-decoration: underline;
 }
 
@@ -156,6 +156,17 @@ body { padding-top: 0; }
 .data-status.warning { background: #FFF2D8; color: #88631E; }
 .data-status.error { background: #FBE6E2; color: #A23D2F; }
 
+/* ---------- Alerta de error del formulario (login/registro) ---------- */
+.form-error {
+    background: #FBE6E2;
+    color: #A23D2F;
+    border: 1px solid #F0C7BC;
+    border-radius: 10px;
+    padding: .6rem .9rem;
+    font-size: .85rem;
+    margin-bottom: 1rem;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
     background-color: var(--se-text);
@@ -167,7 +178,7 @@ body { padding-top: 0; }
 .site-footer p { margin-bottom: 0.4rem; opacity: 0.92; }
 
 /* ========================================================================== */
-/* Contenido propio de "Mis Pedidos"                                          */
+/* Contenido propio de "Mis Pedidos"                                         */
 /* ========================================================================== */
 
 .orders-wrap { max-width: 640px; }

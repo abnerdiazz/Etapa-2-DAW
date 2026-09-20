@@ -35,13 +35,32 @@ function actualizarContadorCarrito() {
     });
 }
 
+// Pinta el menu de la cuenta segun si hay sesion activa o no.
 function actualizarUsuario() {
     const sesion = leerSesion();
     const label = document.querySelector('[data-account-label]');
-    const link = document.querySelector('[data-account-link]');
-    if (sesion && label && link) {
+    const menu = document.querySelector('[data-account-menu]');
+    if (!label || !menu) return;
+
+    if (sesion) {
         label.textContent = sesion.name?.split(' ')[0] || 'Mi cuenta';
-        link.href = sesion.role === 'admin' ? 'admin-reportes.html' : 'mis-pedidos.html';
+        const destino = sesion.role === 'admin' ? 'admin-reportes.html' : 'mis-pedidos.html';
+        const textoDestino = sesion.role === 'admin' ? 'Panel administrativo' : 'Mis Pedidos';
+        menu.innerHTML = `
+            <li><a class="dropdown-item" href="${destino}"><i class="bi bi-receipt me-2"></i>${textoDestino}</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item text-danger" type="button" data-logout-client><i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión</button></li>
+        `;
+        menu.querySelector('[data-logout-client]').addEventListener('click', () => {
+            localStorage.removeItem('saborExpressSession');
+            window.location.href = 'index.html';
+        });
+    } else {
+        label.textContent = 'Mi cuenta';
+        menu.innerHTML = `
+            <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión</a></li>
+            <li><a class="dropdown-item" href="registro.html"><i class="bi bi-person-plus me-2"></i>Crear cuenta</a></li>
+        `;
     }
 }
 
