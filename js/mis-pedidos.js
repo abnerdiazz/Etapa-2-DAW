@@ -1,5 +1,9 @@
 /* ============================================
-   SaborExpress · Etapa 2 · Inicio + Nosotros
+   SaborExpress · Mis Pedidos
+   Antes esta página no cargaba ningún script, por eso
+   perdía el nombre de la sesión y el contador del carrito
+   al llegar aquí. Este archivo sincroniza el navbar igual
+   que en el resto de páginas del sitio.
    ============================================ */
 
 function leerSesion() {
@@ -12,7 +16,6 @@ function leerSesion() {
 
 function leerCarrito() {
     try {
-        // Conserva el carrito temporal creado por la versión anterior.
         if (localStorage.getItem('saborExpressCart') === null) {
             const anterior = sessionStorage.getItem('saborExpressCart');
             if (anterior !== null) {

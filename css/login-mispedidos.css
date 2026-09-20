@@ -13,7 +13,7 @@
 .login-logo {
   width: 56px;
   height: 56px;
-  background-color: var(--color-primary);
+  background-color: var(--se-primary);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -35,37 +35,37 @@
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   font-weight: 700;
-  color: var(--color-muted);
+  color: var(--se-muted);
   text-transform: uppercase;
   margin-bottom: 0.35rem;
 }
 
 /* Inputs con fondo suave, sin el look por defecto de Bootstrap */
 .form-control-soft {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background-color: var(--se-bg);
+  border: 1px solid var(--se-border);
   border-radius: 10px;
   padding: 0.65rem 0.9rem;
   font-size: 0.9rem;
-  color: var(--color-text);
+  color: var(--se-text);
 }
 .form-control-soft::placeholder {
-  color: var(--color-muted);
+  color: var(--se-muted);
 }
 .form-control-soft:focus {
-  background-color: var(--color-surface);
-  border-color: var(--color-primary);
+  background-color: var(--se-surface);
+  border-color: var(--se-primary);
   box-shadow: 0 0 0 0.2rem rgba(206, 75, 49, 0.15);
 }
 
 /* Link "Crear cuenta" */
 .login-link {
-  color: var(--color-primary);
+  color: var(--se-primary);
   font-weight: 700;
   text-decoration: none;
 }
 .login-link:hover {
-  color: var(--color-primary-dark);
+  color: var(--se-primary-dark);
   text-decoration: underline;
 }
 
@@ -156,6 +156,17 @@ body { padding-top: 0; }
 .data-status.warning { background: #FFF2D8; color: #88631E; }
 .data-status.error { background: #FBE6E2; color: #A23D2F; }
 
+/* ---------- Alerta de error del formulario (login/registro) ---------- */
+.form-error {
+    background: #FBE6E2;
+    color: #A23D2F;
+    border: 1px solid #F0C7BC;
+    border-radius: 10px;
+    padding: .6rem .9rem;
+    font-size: .85rem;
+    margin-bottom: 1rem;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
     background-color: var(--se-text);
@@ -173,7 +184,6 @@ body { padding-top: 0; }
 .orders-wrap { max-width: 640px; }
 .orders-wrap .surface-card { width: 100%; }
 
-/* Encabezado de la orden en curso: "ORDEN: #SE-8477" / "Total: $9.18" */
 .order-header {
     display: flex;
     align-items: flex-start;
@@ -189,7 +199,6 @@ body { padding-top: 0; }
     margin: .15rem 0 1.1rem;
 }
 
-/* Linea de tiempo del estado del pedido */
 .order-steps { list-style: none; padding: 0; margin: 0; }
 .order-step { display: flex; gap: .85rem; padding: .7rem 0; }
 
@@ -212,7 +221,6 @@ body { padding-top: 0; }
 .step-desc { font-size: .83rem; color: var(--se-muted); margin: 0; }
 .order-step.is-pending .step-title { color: var(--se-muted); }
 
-/* Bloque de estimacion de llegada */
 .eta-box {
     background: var(--se-primary-soft);
     border-radius: 14px;
@@ -230,7 +238,6 @@ body { padding-top: 0; }
 .eta-time { font-size: 1.35rem; font-weight: 800; color: var(--se-text); margin-bottom: .2rem; }
 .eta-note { font-size: .82rem; color: var(--se-muted); margin: 0; }
 
-/* Tabla de historial de pedidos */
 .orders-table { width: 100%; border-collapse: collapse; }
 .orders-table thead th {
     text-transform: uppercase;
@@ -252,7 +259,6 @@ body { padding-top: 0; }
 .orders-table tr:last-child td { border-bottom: none; }
 .orders-table td:last-child { text-align: right; }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 991.98px) {
     .store-navbar .nav-link.active { border-bottom: 0; }
     .store-main { padding-top: 105px; }
