@@ -2,244 +2,141 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>La Cocina de la Abuela 🥗</title>
+    <title>SaborExpress - Inicio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/inicio-nosotros.css">
 </head>
-<body class="colorbody">
+<body class="store-page">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg store-navbar fixed-top">
             <div class="container">
-                <a class="navbar-brand italic" href="index.html">¡Bienvenidos!</a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                    <img src="img/logo.png" alt="Logo de SaborExpress" class="brand-logo">
+                    <span class="brand-name">SaborExpress</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#storeMenu" aria-controls="storeMenu" aria-expanded="false" aria-label="Abrir navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse italic" id="menu">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="Index.html">Inicio</a></li>
+                <div class="collapse navbar-collapse" id="storeMenu">
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
-                        <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
-                        <li class="nav-item"><a class="nav-link" href="promociones.html">Promociones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mis-pedidos.html">Mis Pedidos</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link cart-pill" href="carrito.html">
+                                <i class="bi bi-cart3 me-1"></i> Carrito (<span data-cart-count>0</span>)
+                            </a>
+                        </li>
                     </ul>
+                    <a class="account-link mt-3 mt-lg-0" href="login.html" data-account-link>
+                        <span class="account-icon"><i class="bi bi-person"></i></span>
+                        <span data-account-label>Mi cuenta</span>
+                    </a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <section class="video-banner">
-
-        <video autoplay muted loop playsinline class="video-fondo">
-            <source src="img/bannervideo.mp4" type="video/mp4">
-        </video>
-
-        <!-- Capa oscura -->
-        <div class="overlay"></div>
-
-        <!-- Contenido -->
-        <div class="contenido-banner text-center text-white">
-            <h1 class="display-3 fw-bold italic">La Cocina de la Abuela</h1>
-
-            <p class="fs-4 italic">
-                Sabor casero que une generaciones
-            </p>
-        </div>
-        <hr>
-    </section>
-    <section class="barra-menu">
-        <a href="menu.html" class="opcion-menu italic">Ver Menú</a>
-    </section>
-
-
-    <section>
+    <main class="store-main">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8 mb-4">
-                    <img src="img/imgpres.jpg"
-                    class="img-fluid w-100 rounded shadow-lg"
-                    alt="Imagen de presentación">
-                    <p class="italic py-3">“Cada bocado cuenta una historia, ven y descubre el sabor que te hará volver.”</p>
-                </div>
-                <div class="col-md-4 text-center text-md-start">
-                    <h2 class="fw-bold mb-3 italic">
-                        Nuestro Horario
-                    </h2>
-                    <p class="fs-5">
-                        <strong>Lunes - Viernes:</strong><br>
-                        10:00 AM - 11:00 PM
-                    </p>
-                    <p class="fs-5">
-                        <strong>Sábados:</strong><br>
-                        9:00 AM - 12:00 PM
-                    </p>
-                    <p class="fs-5">
-                        <strong>Domingos:</strong><br>
-                        9:00 AM - 12:00 PM
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-
-
-    <section class="mt-0">
-        <div class="container py-0">
-            <div class="row align-items-center">
-                <div class="col-md-4 text-center text-md-start">
-                    <h2 class="fw-bold mb-3 italic"><p>Disfruta de increíbles promociones entre amigos y familia.</p>
-                    </h2>
-                </div>
-                <div class="col-md-8 mb-4">
-                    <img src="img/imgpres1.webp"
-                    class="img-fluid w-100 rounded shadow-lg"
-                    alt="Imagen de presentación">
-                    <p class="italic py-3 text-md-end">“Ven, comparte y crea recuerdos entre familia y amigos con nuestras promociones.”</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <main class="container my-5">
-
-        <!-- Historia -->
-        <section id="historia" class="mb-5">
-            <h2 class="italic">Nuestra Historia</h2>
-            <div class="row align-items-center mb-4">
-                <div class="col-md-8 text">
-                    <p>El restaurante “La cocina de la abuela” nace de la pasión por la cocina casera y los recuerdos que su fundadora, Lola Martínez, atesoraba desde su infancia en 1985. Desde pequeña, Lola pasaba horas en la cocina de su abuela, aprendiendo secretos culinarios que se transmitían de generación en generación: guisos, sopas, postres tradicionales y ese toque especial que solo una abuela sabe dar.</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="img/img2.jpeg" alt="La Abuela Cocinando" class="img-fluid rounded">
-                </div>
-            </div>
-            <div class="row align-items-center mb-4">
-                <div class="col-md-4">
-                    <img src="img/img3.jpg" alt="Ignauracion" class="img-fluid rounded">
-                </div>
-                <div class="col-md-8 text">
-                    <p>En 1995, después de años perfeccionando sus recetas mientras trabajaba en distintos restaurantes de la ciudad, Lola decidió abrir su propio espacio. Lo llamó “La cocina de la abuela”, en homenaje a la cocina de su abuela y al amor con que preparaba cada plato. La visión era clara: ofrecer a los clientes una experiencia auténtica, donde cada bocado evocara la calidez y la nostalgia del hogar.</p>
-                </div>
-            </div>
-            <div class="row align-items-center mb-4">
-                <div class="col-md-8 text">
-                    <p>Durante los primeros años, el restaurante comenzó como un pequeño local con apenas 20 mesas, pero gracias a su enfoque en ingredientes frescos, recetas tradicionales y un servicio cercano, pronto se ganó un lugar especial en la comunidad. En 2005, el restaurante se trasladó a un espacio más grande para recibir a más clientes y ofrecer un menú más variado, sin perder nunca la esencia de la cocina de la abuela.</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="img/img4.jpg" alt="Comienzo" class="img-fluid rounded">
-                </div>
-            </div>
-            <div class="row align-items-center mb-4">
-                <div class="col-md-4">
-                    <img src="img/img5.jpg" alt="Actualidad" class="img-fluid rounded">
-                </div>
-                <div class="col-md-8 text">
-                    <p>Hoy, “La cocina de la abuela” sigue siendo un lugar donde la tradición y la innovación se encuentran. Cada plato mantiene la receta original de la abuela de Lola, adaptada con un toque moderno y creativo, mientras que los clientes disfrutan de un ambiente familiar y acogedor. La historia de Lola y su abuela continúa viva en cada guiso, postre y sonrisa que se comparte en cada mesa.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Filosofía -->
-        <section class="mb-5">
-            <h2 class="italic">Nuestra Filosofía</h2>
-            <br>
-            <div class="text">
-                <p>En “La cocina de la abuela” creemos que la comida es mucho más que alimento: es un vínculo con nuestras raíces, una forma de expresar amor y una manera de reunir a las personas alrededor de la mesa. Nuestra filosofía se basa en rescatar y preservar las recetas tradicionales, aquellas que han pasado de generación en generación, manteniendo vivo el sabor auténtico del hogar.</p>
-                <p>Nos comprometemos a utilizar ingredientes frescos y de la mejor calidad, respetando los procesos artesanales que dan a cada platillo ese toque único y especial. Cada receta se prepara con dedicación, paciencia y cariño, tal como lo hacían nuestras abuelas, porque entendemos que el verdadero sabor nace del cuidado en cada detalle.</p>
-                <p>Además, buscamos ofrecer no solo una comida deliciosa, sino también una experiencia cálida y acogedora. Queremos que cada cliente se sienta como en casa, rodeado de un ambiente familiar donde cada visita se convierta en un recuerdo especial.</p>
-                <p>En “La cocina de la abuela”, cocinar es honrar el pasado, disfrutar el presente y compartir momentos que perduran en el corazón.</p>
-            </div>
-        </section>
-        <div class="full-bleed-video">
-            <video autoplay muted loop playsinline>
-                <source src="img/video.mp4" type="video/mp4">
-            </video>
-        </div>
-        <br>
-        <br>
-        <!-- Misión, Visión y Valores -->
-        <div class="row text-center align-items-start">
-
-            <!-- Misión -->
-            <div class="col-md-4 mb-4 d-flex flex-column align-items-center">
-                <h3 class="italic">Misión</h3>
-                <p class="text">Brindar a nuestros clientes una experiencia culinaria excepcional, combinando alimentos de la más alta calidad con recetas tradicionales que evocan la calidez y el cariño del hogar. Nos comprometemos a ofrecer un servicio cálido, atento y amable, creando un ambiente donde cada visita se sienta como en casa</p>
-
-                <img src="img/mision.webp" class="img-fluid imagen-seccion mt-auto" alt="Misión">
-            </div>
-
-            <!-- Visión -->
-            <div class="col-md-4 mb-4 d-flex flex-column align-items-center">
-                <h3 class="italic">Visión</h3>
-                <p class="text">Ser reconocidos como uno de los mejores restaurantes de la región, no solo por la calidad y sabor de nuestros platos, sino también por la experiencia única que ofrecemos a cada cliente. Queremos destacar por nuestra capacidad de combinar la tradición culinaria de la abuela con la innovación y creatividad en la cocina.</p>
-
-                <img src="img/vision.jpg" class="img-fluid imagen-seccion mt-auto" alt="Visión">
-            </div>
-
-            <!-- Valores -->
-            <div class="col-md-4 mb-4 d-flex flex-column align-items-center">
-                <h3 class="italic">Valores</h3>
-
-                <div class="row w-100 text-center">
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li>Calidad</li>
-                            <li>Responsabilidad</li>
-                            <li>Trabajo en equipo</li>
-                            <li>Pasión por la cocina</li>
-                            <li>Innovación</li>
-                            <li>Integridad</li>
-                            <li>Excelencia</li>
-                        </ul>
+            <!-- Hero -->
+            <section class="pt-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <h1 class="page-title hero-title mb-3">Las mejores pupusas, directo a tu puerta</h1>
+                        <p class="section-text mb-4">Ordena en línea y recibe a domicilio de forma rápida y sencilla. El auténtico sabor tradicional donde te encuentres.</p>
+                        <a href="menu.html" class="btn btn-brand">Ver Menú</a>
                     </div>
-
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li>Compromiso</li>
-                            <li>Creatividad</li>
-                            <li>Honestidad</li>
-                            <li>Respeto</li>
-                            <li>Disciplina</li>
-                            <li>Puntualidad</li>
-                            <li>Empatía</li>
-                        </ul>
+                    <div class="col-lg-6">
+                        <img src="img/inicio/hero.jpg" class="hero-image" alt="Pupusas SaborExpress">
                     </div>
                 </div>
+            </section>
 
-                <img src="img/valores.webp" class="img-fluid imagen-seccion mt-auto" alt="Valores">
-            </div>
+            <!-- Especialidades -->
+            <section class="py-5">
+                <h2 class="section-title">Nuestras Especialidades</h2>
+                <p class="page-subtitle">Descubre nuestra variedad de pupusas preparadas con ingredientes frescos y recetas tradicionales.</p>
+                <div class="row g-4 mt-2">
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/comida/pupusa-queso.jpg" class="menu-product-image" alt="Pupusa de queso">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title">Pupusa de queso</h3>
+                                <p class="menu-product-description">Tradicional masa de maíz o arroz rellena de abundante queso derretido al estilo salvadoreño.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/comida/pupusa-revuelta.jpg" class="menu-product-image" alt="Pupusa revuelta">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title">Pupusa revuelta</h3>
+                                <p class="menu-product-description">Nuestra pupusa más popular, con la mezcla perfecta de chicharrón, frijoles refritos y queso.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/comida/pupusa-chicharron.jpg" class="menu-product-image" alt="Pupusa de chicharrón">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title">Pupusa de chicharrón</h3>
+                                <p class="menu-product-description">Rellena de chicharrón de cerdo finamente molido y sazonado, combinado con queso.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <article class="menu-product-card h-100">
+                            <img src="img/comida/pupusa-frijol.jpg" class="menu-product-image" alt="Pupusa de frijol con queso">
+                            <div class="menu-product-body">
+                                <h3 class="menu-product-title">Pupusa de frijol con queso</h3>
+                                <p class="menu-product-description">Suave combinación de frijoles rojos refritos artesanales y queso derretido.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nosotros preview -->
+            <section class="pb-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6 order-lg-2">
+                        <h2 class="section-title mb-3">Nosotros</h2>
+                        <p class="section-text">En SaborExpress nos dedicamos a mantener viva la tradición culinaria salvadoreña. Cada una de nuestras pupusas es elaborada a mano al momento, utilizando materias primas de la más alta calidad y un riguroso estándar de higiene.</p>
+                        <p class="section-text">Nacimos con el propósito de llevar la calidez y el sabor del hogar directamente a tu mesa, garantizando una experiencia deliciosa y confiable en cada entrega.</p>
+                        <a href="nosotros.html" class="btn btn-outline-brand">Conócenos</a>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <img src="img/inicio/pupuseria.jpg" class="hero-image" alt="Nuestra pupusería">
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
 
-    <footer class="bg-dark text-white text-center p-2">
+    <footer class="site-footer text-center p-2">
         <p>Síguenos en:</p>
         <p>
-            <a href="https://www.facebook.com/" target="_blank" class="text-white me-5 text-decoration-none">
-                <i class="bi bi-facebook fs-4"></i>
-            </a>
-
-            <a href="https://www.instagram.com/" target="_blank" class="text-white me-5 text-decoration-none">
-                <i class="bi bi-instagram fs-4"></i>
-            </a>
-
-            <a href="https://x.com/" target="_blank" class="text-white">
-                <i class="bi bi-twitter-x fs-4"></i>
-            </a>
+            <a href="https://www.facebook.com/" target="_blank" class="me-5 text-decoration-none"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="me-5 text-decoration-none"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="https://x.com/" target="_blank" class=""><i class="bi bi-twitter-x fs-4"></i></a>
         </p>
-
-        <p>📍 Dirección: Calle a San Salvador, San Salvador #5972</p>
-        <p>📞 Tel: +503 7909 - 5872</p>
-        <p>
-            <a href="https://mail.google.com/" target="_blank" class="email-link" style="text-decoration: none;"> ✉ Email: contacto@lacocinadelaabuela.com</a>
-        </p>
-
-        <p>&copy; 2026 La Cocina de la Abuela 🥗</p>
+        <p>📍 Dirección: Calle El Mirador, #123, Colonia Escalón, San Salvador.</p>
+        <p>📞 Tel: +503 2200-0000</p>
+        <p><a href="https://mail.google.com/" target="_blank" style="color:#fff; text-decoration:none;"> ✉ Email: soporte@saborexpress.com</a></p>
+        <p>&copy; 2026 SaborExpress</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/inicio-nosotros.js"></script>
+<script src="js/carrito.js"></script>
 </body>
 </html>

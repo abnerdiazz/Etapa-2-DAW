@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal administrativo de pedidos de SaborExpress.">
+    <title>SaborExpress Admin - Pedidos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/contacto-adminpedidos.css">
+</head>
+<body class="admin-wireframe-page">
+    <!-- Navegación administrativa -->
+    <nav class="navbar navbar-expand-lg admin-wireframe-navbar sticky-top" aria-label="Navegación administrativa">
+        <div class="container-fluid px-3 px-lg-5">
+            <a class="navbar-brand admin-wireframe-brand" href="admin-pedidos.html">
+                <img src="img/logo.png" alt="Logo de SaborExpress" class="brand-logo" width="48" height="48">
+                <span>SaborExpress Admin</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Abrir navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="adminNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="admin-pedidos.html">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-menu.html">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-reportes.html">Reportes</a></li>
+                    <li class="nav-item dropdown ms-lg-2">
+                        <button class="btn admin-account-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-1"></i>
+                            <span data-admin-name>Administrador</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><span class="dropdown-item-text small text-secondary" data-admin-email>admin@saborexpress.com</span></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><button class="dropdown-item text-danger" type="button" data-admin-logout><i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión</button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-wireframe-main">
+        <div class="container-fluid px-3 px-lg-5">
+            <div class="d-flex flex-column flex-md-row align-items-md-start justify-content-between gap-3 mb-4">
+                <div>
+                    <h1 class="admin-wireframe-title">Pedidos</h1>
+                    <p class="admin-wireframe-subtitle">Lista de transacciones y estados de órdenes activas.</p>
+                </div>
+            </div>
+
+            <section class="surface-card range-toolbar mb-4" aria-label="Filtro de pedidos">
+                <strong class="me-1"><i class="bi bi-funnel me-2 text-secondary"></i>Filtrar por estado:</strong>
+                <button class="range-chip active" type="button" data-status="todos">Todos</button>
+                <button class="range-chip" type="button" data-status="pendiente">Pendiente</button>
+                <button class="range-chip" type="button" data-status="preparando">Preparando</button>
+                <button class="range-chip" type="button" data-status="entregado">Entregado</button>
+                <div class="search-box admin-report-search ms-lg-auto">
+                    <i class="bi bi-search"></i>
+                    <input id="pedidosSearch" class="form-control form-control-sm" type="search" placeholder="Buscar cliente o ID..." aria-label="Buscar pedido">
+                </div>
+            </section>
+
+            <section class="surface-card report-panel wireframe-chart-panel">
+                <div class="table-responsive">
+                    <table class="table admin-table align-middle">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th class="text-end">Total</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pedidosBody">
+                            <tr>
+                                <td>#1024</td>
+                                <td>María García</td>
+                                <td class="text-end">$8.25</td>
+                                <td><span class="status-badge status-entregado">Entregado</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1025</td>
+                                <td>Juan Pérez</td>
+                                <td class="text-end">$12.50</td>
+                                <td><span class="status-badge status-preparando">Preparando</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1026</td>
+                                <td>Carlos Mendoza</td>
+                                <td class="text-end">$5.00</td>
+                                <td><span class="status-badge status-pendiente">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1027</td>
+                                <td>Ana Rodríguez</td>
+                                <td class="text-end">$18.75</td>
+                                <td><span class="status-badge status-entregado">Entregado</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1028</td>
+                                <td>Luis Martínez</td>
+                                <td class="text-end">$9.50</td>
+                                <td><span class="status-badge status-entregado">Entregado</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1029</td>
+                                <td>Sofía Flores</td>
+                                <td class="text-end">$15.00</td>
+                                <td><span class="status-badge status-preparando">Preparando</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pedidosNoResults" class="text-center text-secondary py-4 d-none">No se encontraron pedidos con ese criterio.</div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/carrito.js"></script>
+</body>
+</html>
