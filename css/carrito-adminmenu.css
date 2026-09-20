@@ -1,0 +1,631 @@
+/* ========================================================================== */
+/* Estilos exclusivos del interior del Carrito                                */
+/* ========================================================================== */
+
+/* Título principal de la página */
+.cart-page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--se-text, #111111);
+    letter-spacing: -0.5px;
+}
+
+/* Tarjeta contenedora */
+.cart-surface-card {
+    background: #ffffff;
+    border: 1px solid var(--se-border, #eae5df);
+    border-radius: 12px;
+    box-shadow: var(--se-shadow, 0 2px 8px rgba(0, 0, 0, 0.02));
+}
+
+/* Tabla de Productos */
+.cart-table thead tr {
+    border-bottom: 1px solid var(--se-border, #eae5df);
+    background-color: var(--se-bg, #fcf9f5);
+}
+
+.cart-table th {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    color: var(--se-text, #111111);
+}
+
+.cart-table td {
+    padding: 18px 20px;
+    vertical-align: middle;
+}
+
+.cart-product-title {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--se-text, #111111);
+}
+
+/* Cápsula Unificada de Cantidad [- 4 +] */
+.qty-pill-container {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f2eee9;
+    border: 1px solid #e2ddd5;
+    border-radius: 6px;
+    padding: 2px 4px;
+}
+
+.qty-btn {
+    background: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    color: #333333;
+    font-weight: bold;
+    font-size: 0.85rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.qty-btn:hover {
+    background-color: #e2ddd5;
+}
+
+.qty-val {
+    font-weight: 800;
+    font-style: italic;
+    padding: 0 10px;
+    color: #111111;
+    font-size: 0.95rem;
+}
+
+.cart-price-text {
+    font-style: italic;
+    color: var(--se-muted, #555555);
+    font-weight: 500;
+}
+
+.cart-subtotal-text {
+    font-style: italic;
+    font-weight: 800;
+    color: var(--se-text, #111111);
+}
+
+/* Resumen de la orden */
+.summary-title {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--se-text, #111111);
+}
+
+.summary-label {
+    font-style: italic;
+    color: var(--se-muted, #666666);
+}
+
+.summary-value {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--se-text, #111111);
+}
+
+.summary-total-label {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--se-text, #111111);
+}
+
+.summary-total-value {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--se-primary, #c84328);
+}
+
+/* Botón Outline para Checkout */
+.btn-checkout-outline {
+    width: 100%;
+    background: transparent;
+    color: var(--se-primary, #c84328);
+    border: 1px solid var(--se-primary, #c84328);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-style: italic;
+    transition: all 0.2s ease;
+}
+
+.btn-checkout-outline:hover {
+    background-color: var(--se-primary, #c84328);
+    color: #ffffff;
+}
+
+/* ========================================================================== */
+/* SaborExpress · Módulo Carrito y Checkout (Estilos del alumno)               */
+/* ========================================================================== */
+
+/* --- ESTILOS DEL CARRITO --- */
+
+/* Título principal */
+.cart-page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--se-text, #111111);
+    letter-spacing: -0.5px;
+}
+
+/* Tarjeta contenedora */
+.cart-surface-card {
+    background: #ffffff;
+    border: 1px solid var(--se-border, #eae5df);
+    border-radius: 12px;
+    box-shadow: var(--se-shadow, 0 2px 8px rgba(0, 0, 0, 0.02));
+}
+
+/* Tabla de Productos */
+.cart-table thead tr {
+    border-bottom: 1px solid var(--se-border, #eae5df);
+    background-color: var(--se-bg, #fcf9f5);
+}
+
+.cart-table th {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    color: var(--se-text, #111111);
+}
+
+.cart-table td {
+    padding: 18px 20px;
+    vertical-align: middle;
+}
+
+.cart-product-title {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--se-text, #111111);
+}
+
+/* Cápsula Unificada de Cantidad [- 4 +] */
+.qty-pill-container {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f2eee9;
+    border: 1px solid #e2ddd5;
+    border-radius: 6px;
+    padding: 2px 4px;
+}
+
+.qty-btn {
+    background: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    color: #333333;
+    font-weight: bold;
+    font-size: 0.85rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.qty-btn:hover {
+    background-color: #e2ddd5;
+}
+
+.qty-val {
+    font-weight: 800;
+    font-style: italic;
+    padding: 0 10px;
+    color: #111111;
+    font-size: 0.95rem;
+}
+
+.cart-price-text {
+    font-style: italic;
+    color: var(--se-muted, #555555);
+    font-weight: 500;
+}
+
+.cart-subtotal-text {
+    font-style: italic;
+    font-weight: 800;
+    color: var(--se-text, #111111);
+}
+
+/* Resumen de la orden */
+.summary-title {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--se-text, #111111);
+}
+
+.summary-label {
+    font-style: italic;
+    color: var(--se-muted, #666666);
+}
+
+.summary-value {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--se-text, #111111);
+}
+
+.summary-total-label {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--se-text, #111111);
+}
+
+.summary-total-value {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--se-primary, #c84328);
+}
+
+/* Botón Outline para Checkout */
+.btn-checkout-outline {
+    width: 100%;
+    background: transparent;
+    color: var(--se-primary, #c84328);
+    border: 1px solid var(--se-primary, #c84328);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-style: italic;
+    transition: all 0.2s ease;
+}
+
+.btn-checkout-outline:hover {
+    background-color: var(--se-primary, #c84328);
+    color: #ffffff;
+}
+
+
+/* --- ESTILOS DEL CHECKOUT --- */
+
+.checkout-section-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--se-text, #1a1a1a);
+    margin-bottom: 1.25rem;
+}
+
+.checkout-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--se-muted, #746F69);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.checkout-input {
+    background-color: #fbf9f6;
+    border: 1px solid var(--se-border, #E9D8BF);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+    color: var(--se-text, #272421);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.checkout-input:focus {
+    background-color: #ffffff;
+    border-color: var(--se-primary, #CE4B31);
+    box-shadow: 0 0 0 0.2rem rgba(206, 75, 49, 0.12);
+}
+
+/* Contenedor del Mapa */
+.map-placeholder {
+    position: relative;
+    height: 180px;
+    background: #e5e9ec url('https://tile.openstreetmap.org/14/4122/7517.png') center/cover no-repeat;
+    border-radius: 10px;
+    border: 1px solid var(--se-border, #E9D8BF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.map-overlay-pin {
+    width: 36px;
+    height: 36px;
+    background: #1f242d;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    font-size: 1.1rem;
+}
+
+.map-helper-text {
+    font-size: 0.8rem;
+    color: var(--se-muted, #746F69);
+    margin-top: 0.4rem;
+}
+
+/* Opciones de Método de Pago */
+.payment-option {
+    border: 1px solid var(--se-border, #E9D8BF);
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    user-select: none;
+}
+
+.payment-option.active {
+    border: 2px solid #1f242d;
+    background-color: #ffffff;
+}
+
+.payment-radio-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #1f242d;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.payment-option.active .payment-radio-custom::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #1f242d;
+    border-radius: 50%;
+}
+
+.payment-option-label {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--se-text, #1a1a1a);
+    margin: 0;
+}
+
+/* Resumen de la Orden */
+.checkout-summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    margin-bottom: 0.65rem;
+}
+
+.checkout-summary-item .item-title {
+    color: var(--se-text, #272421);
+    font-weight: 600;
+}
+
+.checkout-summary-item .item-price {
+    font-weight: 700;
+    color: var(--se-text, #272421);
+}
+
+.btn-confirm-order {
+    background-color: #1f242d;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-weight: 700;
+    width: 100%;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-confirm-order:hover {
+    background-color: var(--se-primary, #CE4B31);
+    color: #ffffff;
+}
+
+.confirm-disclaimer {
+    font-size: 0.76rem;
+    color: var(--se-muted, #746F69);
+    text-align: center;
+    margin-top: 0.85rem;
+    line-height: 1.35;
+}
+
+/* Contenedor para el mapa interactivo */
+.map-container {
+    height: 220px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--se-border, #E9D8BF);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.map-helper-text {
+    font-size: 0.8rem;
+    color: var(--se-muted, #746F69);
+    margin-top: 0.4rem;
+    font-style: italic;
+}
+
+/* ========================================================================== */
+/* Módulo Administrador - Gestión de Menú                                     */
+/* ========================================================================== */
+
+/* Header Admin */
+.admin-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--se-border, #e2ddd5);
+    padding: 0.8rem 0;
+}
+
+.admin-brand {
+    font-weight: 800;
+    color: var(--se-text, #111111);
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.admin-nav-link {
+    color: #666666;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.admin-nav-link:hover {
+    color: #111111;
+}
+
+.admin-nav-link.active {
+    color: #111111;
+    border: 1px solid #111111;
+    background-color: #ffffff;
+}
+
+/* Botón Añadir Producto */
+.btn-add-product {
+    background-color: #ffffff;
+    border: 1px solid #111111;
+    color: #111111;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.btn-add-product:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+/* Tarjetas de Producto Admin */
+.admin-card {
+    background: #ffffff;
+    border: 1px solid var(--se-border, #e2ddd5);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+.admin-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.admin-card-img-placeholder {
+    height: 140px;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999999;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.admin-card-body {
+    padding: 16px;
+}
+
+.admin-product-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: #111111;
+    margin-bottom: 2px;
+}
+
+.admin-product-category {
+    font-size: 0.78rem;
+    color: #888888;
+    margin-bottom: 8px;
+}
+
+.admin-product-price {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #111111;
+    margin-bottom: 0;
+}
+
+.admin-card-footer {
+    border-top: 1px solid var(--se-border, #eaeaea);
+    padding: 10px 16px;
+    background-color: #ffffff;
+}
+
+.btn-action-text {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #666666;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-action-text:hover {
+    color: #111111;
+    text-decoration: underline;
+}
+
+.btn-action-delete:hover {
+    color: #dc3545;
+}
+
+/* --- Estilos de la tarjeta con imagen en Admin --- */
+.admin-card-img {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    border-bottom: 1px solid #e2ddd5;
+    background-color: #f0ede8;
+    display: block;
+}
+
+.admin-card-img-placeholder {
+    height: 145px;
+    background-color: #f0ede8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #99948d;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e2ddd5;
+}
+
+/* --- Ajuste perfecto para imágenes del menú en Admin --- */
+.admin-card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #e2ddd5;
+    background-color: #f2eee9;
+}

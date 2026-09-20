@@ -178,12 +178,13 @@ body { padding-top: 0; }
 .site-footer p { margin-bottom: 0.4rem; opacity: 0.92; }
 
 /* ========================================================================== */
-/* Contenido propio de "Mis Pedidos"                                          */
+/* Contenido propio de "Mis Pedidos"                                         */
 /* ========================================================================== */
 
 .orders-wrap { max-width: 640px; }
 .orders-wrap .surface-card { width: 100%; }
 
+/* Encabezado de la orden en curso: "ORDEN: #SE-8477" / "Total: $9.18" */
 .order-header {
     display: flex;
     align-items: flex-start;
@@ -199,6 +200,7 @@ body { padding-top: 0; }
     margin: .15rem 0 1.1rem;
 }
 
+/* Linea de tiempo del estado del pedido */
 .order-steps { list-style: none; padding: 0; margin: 0; }
 .order-step { display: flex; gap: .85rem; padding: .7rem 0; }
 
@@ -221,6 +223,7 @@ body { padding-top: 0; }
 .step-desc { font-size: .83rem; color: var(--se-muted); margin: 0; }
 .order-step.is-pending .step-title { color: var(--se-muted); }
 
+/* Bloque de estimacion de llegada */
 .eta-box {
     background: var(--se-primary-soft);
     border-radius: 14px;
@@ -238,6 +241,7 @@ body { padding-top: 0; }
 .eta-time { font-size: 1.35rem; font-weight: 800; color: var(--se-text); margin-bottom: .2rem; }
 .eta-note { font-size: .82rem; color: var(--se-muted); margin: 0; }
 
+/* Tabla de historial de pedidos */
 .orders-table { width: 100%; border-collapse: collapse; }
 .orders-table thead th {
     text-transform: uppercase;
@@ -259,6 +263,7 @@ body { padding-top: 0; }
 .orders-table tr:last-child td { border-bottom: none; }
 .orders-table td:last-child { text-align: right; }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 991.98px) {
     .store-navbar .nav-link.active { border-bottom: 0; }
     .store-main { padding-top: 105px; }
