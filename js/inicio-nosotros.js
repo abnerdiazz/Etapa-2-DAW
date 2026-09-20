@@ -2,6 +2,7 @@
    SaborExpress · Etapa 2 · Inicio + Nosotros
    ============================================ */
 
+// Lee la sesión guardada por el login (misma clave que usa el resto del sitio).
 function leerSesion() {
     try {
         return JSON.parse(localStorage.getItem('saborExpressSession'));

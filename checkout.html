@@ -4,52 +4,156 @@
     <meta charset="UTF-8">
     <title>SaborExpress - Checkout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/menu-reportes.css">
+    <link rel="stylesheet" href="css/carrito-adminmenu.css">
 </head>
-<body>
+<body class="store-page d-flex flex-column min-vh-100">
+
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg store-navbar fixed-top">
             <div class="container">
-                <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html"><span class="d-inline-flex align-items-center justify-content-center bg-light text-dark rounded-circle me-2" style="width:32px;height:32px;font-size:0.75rem;font-weight:bold;">SE</span>SaborExpress</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                    <img src="img/logo.png" alt="Logo de SaborExpress" class="brand-logo">
+                    <span class="brand-name">SaborExpress</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#storeMenu" aria-controls="storeMenu" aria-expanded="false" aria-label="Abrir navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav mx-auto align-items-lg-center">
-                        <li class="nav-item"><a class="nav-link " href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link " href="menu.html">Menú</a></li>
-                        <li class="nav-item"><a class="nav-link " href="nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link " href="contacto.html">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link " href="mis-pedidos.html">Mis Pedidos</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="carrito.html">Carrito</a></li>
+                <div class="collapse navbar-collapse" id="storeMenu">
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mis-pedidos.html">Mis Pedidos</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link cart-pill active" href="carrito.html" aria-current="page">
+                                <i class="bi bi-cart3 me-1"></i> Carrito (<span id="cart-count">0</span>)
+                            </a>
+                        </li>
                     </ul>
-                    <div class="d-flex align-items-center gap-2 ms-lg-3">
-                        <a class="nav-link text-white mb-0" href="login.html">Mi cuenta / Iniciar sesión</a>
-                        <i class="bi bi-person-circle text-white fs-4"></i>
-                    </div>
+                    <a class="account-link mt-3 mt-lg-0" href="login.html" data-account-link>
+                        <span class="account-icon"><i class="bi bi-person"></i></span>
+                        <span data-account-label>Mi cuenta</span>
+                    </a>
                 </div>
             </div>
         </nav>
     </header>
-    <br>
 
-    <section class="container pt-5">
-        <h1 class="fw-bold">Checkout</h1>
-        <p>Completa tus datos de entrega y método de pago para confirmar tu pedido.</p>
-        <div class="bg-light rounded-3 d-flex align-items-center justify-content-center" style="height:220px;">
-            <span class="text-muted">IMAGEN / CONTENIDO PENDIENTE</span>
+    <!-- Contenido del Checkout -->
+    <main class="store-main flex-grow-1">
+        <div class="container">
+            <h1 class="cart-page-title mb-4">Checkout</h1>
+
+            <div class="row g-4 align-items-start">
+                
+                <div class="col-lg-8">
+                    
+                    <!-- 1. Datos de entrega -->
+                    <div class="cart-surface-card p-4 mb-4">
+                        <h2 class="checkout-section-title">1. Datos de entrega</h2>
+                        
+                        <div class="mb-3">
+                            <label class="form-label checkout-label" for="input-nombre">NOMBRE DE CONTACTO</label>
+                            <input type="text" class="form-control checkout-input" id="input-nombre" value="Juan Pérez">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label checkout-label" for="input-telefono">TELÉFONO DE CONTACTO</label>
+                            <input type="text" class="form-control checkout-input" id="input-telefono" value="7777-7777">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label checkout-label" for="input-direccion">DIRECCIÓN DE ENTREGA</label>
+                            <input type="text" class="form-control checkout-input" id="input-direccion" value="Avenida Revolución, #007">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label checkout-label">SELECCIONA TU UBICACIÓN EN EL MAPA</label>
+                            <div id="map" class="map-container"></div>
+                            <p class="map-helper-text">Mueve el pin para ajustar tu ubicación exacta</p>
+                        </div>
+
+                        <div class="mb-0">
+                            <label class="form-label checkout-label" for="input-referencia">PUNTO DE REFERENCIA</label>
+                            <input type="text" class="form-control checkout-input" id="input-referencia" placeholder="Frente a la plaza central, junto a las bancas">
+                        </div>
+                    </div>
+
+                    <!-- 2. Método de pago -->
+                    <div class="cart-surface-card p-4">
+                        <h2 class="checkout-section-title">2. Método de pago</h2>
+                        
+                        <div class="d-flex gap-3 mt-3">
+                            <!-- Opción 1: Efectivo -->
+                            <label class="payment-option border rounded p-3 d-flex align-items-center gap-2 flex-fill cursor-pointer">
+                                <input type="radio" name="metodo_pago" value="efectivo" checked>
+                                <span class="fw-bold">Efectivo (Contra entrega)</span>
+                            </label>
+
+                            <!-- Opción 2: Transferencia -->
+                            <label class="payment-option border rounded p-3 d-flex align-items-center gap-2 flex-fill cursor-pointer">
+                                <input type="radio" name="metodo_pago" value="transferencia">
+                                <span class="fw-bold">Transferencia bancaria</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="cart-surface-card p-4">
+                        <h3 class="summary-title mb-4">Resumen de tu orden</h3>
+                        
+                        <!-- Lista dinámica donde JS inyectará las pupusas y bebidas del carrito -->
+                        <div id="checkout-summary-items"></div>
+
+                        <hr class="my-3" style="border-color: #eae5df; opacity: 1;">
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="summary-label">Subtotal</span>
+                            <span class="summary-value" id="checkout-subtotal">$0.00</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="summary-label">Envío fijo</span>
+                            <span class="summary-value" id="checkout-shipping">$1.00</span>
+                        </div>
+
+                        <hr class="my-3" style="border-color: #eae5df; opacity: 1;">
+
+                        <div class="d-flex justify-content-between mb-4 align-items-center">
+                            <span class="summary-total-label">Total</span>
+                            <span class="summary-total-value" id="checkout-total">$0.00</span>
+                        </div>
+
+                        <button type="button" class="btn-checkout-outline w-100 py-2" id="btn-confirm-order" style="background-color: #1f242d; color: #fff; border: none;">
+                            Confirmar pedido
+                        </button>
+
+                        <p class="confirm-disclaimer">
+                            Al confirmar, te redirigiremos a WhatsApp para enviar el detalle de tu pedido directamente.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </section>
-    <br>
+    </main>
 
-    <footer class="bg-dark text-white text-center p-2">
+    <footer class="site-footer text-center p-2">
         <p>Síguenos en:</p>
         <p>
-            <a href="https://www.facebook.com/" target="_blank" class="text-white me-5 text-decoration-none"><i class="bi bi-facebook fs-4"></i></a>
-            <a href="https://www.instagram.com/" target="_blank" class="text-white me-5 text-decoration-none"><i class="bi bi-instagram fs-4"></i></a>
-            <a href="https://x.com/" target="_blank" class="text-white"><i class="bi bi-twitter-x fs-4"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" class="me-5 text-decoration-none"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="me-5 text-decoration-none"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="https://x.com/" target="_blank" class=""><i class="bi bi-twitter-x fs-4"></i></a>
         </p>
         <p>📍 Dirección: Calle El Mirador, #123, Colonia Escalón, San Salvador.</p>
         <p>📞 Tel: +503 2200-0000</p>
@@ -57,7 +161,8 @@
         <p>&copy; 2026 SaborExpress</p>
     </footer>
 
-    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/carrito.js"></script>
 </body>
 </html>
