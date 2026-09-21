@@ -1,71 +1,56 @@
-import { obtenerPedidos, leerSesion } from './saborexpress-data.js';
+import { obtenerPedidos, iniciarAdmin, actualizarEstadoPedido } from './saborexpress-data.js';
 
-const state = {
-    pedidos: [],
-    estado: 'todos',
-    busqueda: ''
-};
+const ESTADOS = ['Pendiente', 'Preparando', 'En camino', 'Entregado', 'Cancelado'];
+const state = { pedidos: [], estado: 'todos', busqueda: '' };
 
 const money = value => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(Number(value || 0));
 const esc = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
 
-// Traduce los estados que vienen del modelo de datos (Confirmado, En preparación,
-// En camino, Entregado, Cancelado) a las tres etiquetas visuales del panel.
-function normalizarEstado(estado) {
+// Agrupa los estados en las etiquetas de los filtros del panel.
+function claveEstado(estado) {
     const valor = String(estado || '').toLowerCase();
-    if (valor.includes('entreg')) return { clave: 'entregado', texto: 'Entregado' };
-    if (valor.includes('cancel')) return { clave: 'cancelado', texto: 'Cancelado' };
-    if (valor.includes('camino') || valor.includes('prepara')) return { clave: 'preparando', texto: 'Preparando' };
-    return { clave: 'pendiente', texto: 'Pendiente' };
+    if (valor.includes('entreg')) return 'entregado';
+    if (valor.includes('cancel')) return 'cancelado';
+    if (valor.includes('camino') || valor.includes('prepara')) return 'preparando';
+    return 'pendiente';
 }
 
 function pedidosFiltrados() {
     const query = state.busqueda.toLowerCase();
     return state.pedidos.filter(pedido => {
-        const { clave } = normalizarEstado(pedido.estado);
-        const coincideEstado = state.estado === 'todos' || clave === state.estado;
-        const texto = `${pedido.id} ${pedido.cliente || ''}`.toLowerCase();
-        return coincideEstado && texto.includes(query);
+        const coincideEstado = state.estado === 'todos' || claveEstado(pedido.estado) === state.estado;
+        return coincideEstado && `${pedido.id} ${pedido.cliente}`.toLowerCase().includes(query);
     });
 }
 
 function render() {
-    const tbody = document.getElementById('pedidosBody');
     const visibles = pedidosFiltrados();
-
-    tbody.innerHTML = visibles.map(pedido => {
-        const { clave, texto } = normalizarEstado(pedido.estado);
-        const cliente = pedido.cliente || 'Cliente web';
+    document.getElementById('pedidosBody').innerHTML = visibles.map(pedido => {
+        const opciones = ESTADOS.map(estado => `<option ${estado === pedido.estado ? 'selected' : ''}>${estado}</option>`).join('');
+        const productos = pedido.items.map(item => `${item.cantidad}× ${esc(item.nombre)}`).join(', ');
         return `
         <tr>
             <td>#${esc(pedido.id)}</td>
-            <td>${esc(cliente)}</td>
+            <td>${pedido.creadoEn.toLocaleDateString('es-SV')} ${pedido.creadoEn.toLocaleTimeString('es-SV', { hour: '2-digit', minute: '2-digit' })}</td>
+            <td>${esc(pedido.cliente || 'Cliente web')}<br><small class="text-secondary">${esc(pedido.telefono)}</small></td>
+            <td class="small">${productos}</td>
             <td class="text-end">${money(pedido.total)}</td>
-            <td><span class="status-badge status-${clave}">${texto}</span></td>
+            <td><select class="form-select form-select-sm" data-estado-id="${esc(pedido.id)}" aria-label="Estado del pedido ${esc(pedido.id)}">${opciones}</select></td>
         </tr>`;
     }).join('');
 
-    document.getElementById('pedidosNoResults').classList.toggle('d-none', visibles.length !== 0);
+    const aviso = document.getElementById('pedidosNoResults');
+    aviso.textContent = state.pedidos.length
+        ? 'No se encontraron pedidos con ese criterio.'
+        : 'Aún no hay pedidos. Aparecerán aquí cuando un cliente confirme uno desde el checkout.';
+    aviso.classList.toggle('d-none', visibles.length !== 0);
 }
 
 async function init() {
-    const sesion = leerSesion();
-    if (!sesion || sesion.role !== 'admin') {
-        window.location.replace('admin-login.html?redirect=admin-pedidos.html');
-        return;
-    }
-    if (sesion.name) document.querySelector('[data-admin-name]').textContent = sesion.name;
-    if (sesion.email) document.querySelector('[data-admin-email]').textContent = sesion.email;
-
-    document.querySelector('[data-admin-logout]').addEventListener('click', () => {
-        localStorage.removeItem('saborExpressSession');
-        window.location.href = 'admin-login.html';
-    });
+    if (!iniciarAdmin('admin-pedidos.html')) return;
 
     try {
-        const { datos, origen } = await obtenerPedidos();
-        state.pedidos = datos;
-        console.info(`Fuente de pedidos: ${origen}`);
+        state.pedidos = (await obtenerPedidos()).datos;
         render();
     } catch (error) {
         console.error(error);
@@ -85,6 +70,16 @@ async function init() {
 
     document.getElementById('pedidosSearch').addEventListener('input', event => {
         state.busqueda = event.target.value.trim();
+        render();
+    });
+
+    // Cambiar el estado de un pedido (se refleja en Mis Pedidos del cliente)
+    document.getElementById('pedidosBody').addEventListener('change', event => {
+        const select = event.target.closest('[data-estado-id]');
+        if (!select) return;
+        actualizarEstadoPedido(select.dataset.estadoId, select.value);
+        const pedido = state.pedidos.find(item => item.id === select.dataset.estadoId);
+        if (pedido) pedido.estado = select.value;
         render();
     });
 }

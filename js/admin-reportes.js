@@ -1,4 +1,4 @@
-import { obtenerPedidos, leerSesion } from './saborexpress-data.js';
+import { obtenerPedidos, iniciarAdmin } from './saborexpress-data.js';
 
 const state = {
     pedidos: [],
@@ -195,18 +195,7 @@ function exportarCsv() {
 }
 
 async function init() {
-    const sesion = leerSesion();
-    if (!sesion || sesion.role !== 'admin') {
-        window.location.replace('admin-login.html?redirect=admin-reportes.html');
-        return;
-    }
-    if (sesion.name) document.querySelector('[data-admin-name]').textContent = sesion.name;
-    if (sesion.email) document.querySelector('[data-admin-email]').textContent = sesion.email;
-
-    document.querySelector('[data-admin-logout]').addEventListener('click', () => {
-        localStorage.removeItem('saborExpressSession');
-        window.location.href = 'admin-login.html';
-    });
+    if (!iniciarAdmin('admin-reportes.html')) return;
 
     try {
         const { datos, origen } = await obtenerPedidos();
