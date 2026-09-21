@@ -99,7 +99,7 @@ export function guardarProductos(lista) {
 }
 
 // ---------------------------------------------------------------------------
-// Pedidos reales (creados desde el Checkout). Ya no se generan pedidos ficticios.
+// Pedidos reales (creados desde el Checkout).
 // ---------------------------------------------------------------------------
 const CLAVE_PEDIDOS = 'saborExpressPedidos';
 const esDemo = pedido => String(pedido?.id ?? '').startsWith('DEMO-');
@@ -192,9 +192,6 @@ export function leerUsuarios() {
     }
 }
 
-// ---------------------------------------------------------------------------
-// Carrito: una sola clave (saborExpressCart) para Menú, Carrito y Checkout.
-// ---------------------------------------------------------------------------
 export function leerCarrito() {
     try {
         const carrito = JSON.parse(localStorage.getItem('saborExpressCart'));
@@ -257,7 +254,7 @@ export function iniciarNavbar() {
 }
 
 // ---------------------------------------------------------------------------
-// Paneles de administración: exige sesión admin y pinta nombre, correo y salida
+// Paneles de administración
 // ---------------------------------------------------------------------------
 export function iniciarAdmin(pagina) {
     const sesion = leerSesionAdmin();

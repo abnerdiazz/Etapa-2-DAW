@@ -1,7 +1,3 @@
-/* ============================================
-   SaborExpress · Inicio de sesión (clientes y administrador)
-   Un solo formulario: según las credenciales se decide el rol y la vista.
-   ============================================ */
 import { ADMIN_DEMO, leerSesion, guardarSesion, leerUsuarios } from './saborexpress-data.js';
 
 const REGEX_CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

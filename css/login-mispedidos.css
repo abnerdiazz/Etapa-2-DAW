@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-/* Logo grande (cubiertos) arriba del titulo, en tarjetas de login/registro */
+/* Logo arriba del titulo, en tarjetas de login/registro */
 .login-logo {
   width: 56px;
   height: 56px;
@@ -176,10 +176,6 @@ body { padding-top: 0; }
 .site-footer a { color: var(--se-bg); }
 .site-footer a:hover { color: var(--se-primary); }
 .site-footer p { margin-bottom: 0.4rem; opacity: 0.92; }
-
-/* ========================================================================== */
-/* Contenido propio de "Mis Pedidos"                                         */
-/* ========================================================================== */
 
 .orders-wrap { max-width: 640px; }
 .orders-wrap .surface-card { width: 100%; }

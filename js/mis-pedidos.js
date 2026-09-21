@@ -1,7 +1,3 @@
-/* ============================================
-   SaborExpress · Mis Pedidos
-   Muestra solo los pedidos reales del cliente con sesión activa.
-   ============================================ */
 import { iniciarNavbar, leerSesion, obtenerPedidos } from './saborexpress-data.js';
 
 const money = value => `$${Number(value || 0).toFixed(2)}`;
