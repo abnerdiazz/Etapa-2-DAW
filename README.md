@@ -85,6 +85,7 @@ Etapa-2-DAW/
 │   ├── login-mispedidos.css
 │   └── menu-reportes.css
 ├── img/
+│   ├── capturas/
 │   ├── comida/
 │   ├── contacto/
 │   ├── inicio/
@@ -182,6 +183,69 @@ Como es un proyecto estático, no requiere instalación compleja.
 1. Abre la carpeta del proyecto en tu editor.
 2. Localiza el archivo `index.html`.
 3. Ábrelo con el navegador o usa la opción de "Open with Live Server" si tienes una extensión instalada.
+
+---
+
+## 📸 Capturas
+
+Las siguientes imágenes muestran las vistas principales del sistema, tanto del lado del cliente como del panel administrativo, en escritorio y en móvil.
+
+### Inicio
+
+Sección principal con la presentación del negocio, llamado a la acción hacia el menú y vista previa de la sección Nosotros.
+
+![Página de Inicio de SaborExpress](img/capturas/inicio-escritorio.png)
+
+### Menú
+
+Catálogo de productos con filtros por categoría, buscador, selección de cantidades y paginación.
+
+![Menú de SaborExpress con filtros y productos](img/capturas/menu-escritorio.png)
+
+### Carrito
+
+Resumen de los productos agregados, con control de cantidades, subtotal, envío y total antes de continuar al checkout.
+
+![Carrito de compras de SaborExpress](img/capturas/carrito-escritorio.png)
+
+### Mis Pedidos
+
+Seguimiento del pedido en curso con línea de tiempo de su estado, y tabla con el historial de pedidos anteriores del cliente.
+
+![Página de Mis Pedidos con el estado del pedido y el historial](img/capturas/mispedidos-escritorio.png)
+
+### Admin Pedidos
+
+Panel administrativo con filtro por estado, buscador y tabla de todas las órdenes activas del negocio.
+
+![Panel de Admin Pedidos con filtros y tabla de órdenes](img/capturas/admin-pedidos-escritorio.png)
+
+<details>
+<summary>Ver estas mismas vistas en móvil</summary>
+
+**Inicio en móvil**
+
+<img src="img/capturas/inicio-movil.png" alt="Inicio en móvil" width="320">
+
+**Menú en móvil**
+
+<img src="img/capturas/menu-movil.png" alt="Menú en móvil" width="320">
+
+**Carrito en móvil**
+
+<img src="img/capturas/carrito-movil.png" alt="Carrito en móvil" width="320">
+
+**Mis Pedidos en móvil**
+
+<img src="img/capturas/mispedidos-movil.png" alt="Mis Pedidos en móvil" width="320">
+
+**Admin Pedidos en móvil**
+
+<img src="img/capturas/admin-pedidos-movil.png" alt="Admin Pedidos en móvil" width="320">
+
+</details>
+
+---
 
 ## 📌 Consideraciones técnicas
 

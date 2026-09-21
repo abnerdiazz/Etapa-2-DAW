@@ -308,6 +308,7 @@ body { padding-top: 0; }
 .status-entregado { background: var(--se-green-soft); color: var(--se-green); }
 .status-preparando { background: #FFF2D8; color: #88631E; }
 .status-pendiente { background: var(--se-primary-soft); color: var(--se-primary); }
+.status-cancelado { background: #FBE6E2; color: #A23D2F; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 991.98px) {
