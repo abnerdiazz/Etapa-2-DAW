@@ -327,3 +327,13 @@ body { padding-top: 0; }
     .admin-report-search { width: 100%; }
     .range-toolbar { align-items: stretch; }
 }
+
+/* ---------- Animaciones al pasar el cursor ---------- */
+.map-placeholder img { transition: transform .4s ease; }
+.map-placeholder:hover img { transform: scale(1.06); }
+.contact-icon { transition: transform .25s ease, background-color .25s ease; }
+.d-flex:hover > .contact-icon { transform: scale(1.1); }
+@media (prefers-reduced-motion: reduce) {
+    .map-placeholder img, .contact-icon { transition: none; }
+    .map-placeholder:hover img, .d-flex:hover > .contact-icon { transform: none; }
+}

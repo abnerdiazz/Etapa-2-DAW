@@ -53,6 +53,15 @@ const normalizarPedido = raw => ({
     id: raw.id,
     estado: raw.estado ?? raw.status ?? 'Pendiente',
     total: Number(raw.total ?? 0),
+    subtotal: Number(raw.subtotal ?? raw.total ?? 0),
+    envio: Number(raw.envio ?? 0),
+    cliente: raw.cliente ?? raw.nombre ?? '',
+    email: String(raw.email ?? '').toLowerCase(),
+    telefono: raw.telefono ?? '',
+    direccion: raw.direccion ?? '',
+    referencia: raw.referencia ?? '',
+    pago: raw.pago ?? '',
+    ubicacion: raw.ubicacion ?? null,
     creadoEn: normalizarFecha(raw.creadoEn ?? raw.createdAt ?? raw.fecha),
     items: (raw.items ?? raw.productos ?? []).map(normalizarItem)
 });
@@ -78,53 +87,193 @@ export async function obtenerProductos() {
     return { datos, origen: 'localStorage' };
 }
 
-function construirPedidosDemo() {
-    const pesos = [
-        ['Pupusa Revuelta', 'Pupusas', 0.85, 45],
-        ['Pupusa de Queso con Loroco', 'Pupusas', 0.90, 28],
-        ['Pupusa de Frijol con Queso', 'Pupusas', 0.85, 15],
-        ['Quesadilla Salvadoreña', 'Postres', 1.25, 8],
-        ['Café de Olla', 'Bebidas', 0.75, 4]
-    ];
-    const expanded = pesos.flatMap(([nombre, categoria, precio, peso]) =>
-        Array.from({ length: peso }, () => ({ nombre, categoria, precio }))
-    );
-    const estados = ['Confirmado', 'En preparación', 'En camino', 'Entregado'];
+// ---------------------------------------------------------------------------
+// Catálogo: lectura completa y guardado (lo usa el panel Admin Menú)
+// ---------------------------------------------------------------------------
+export function leerProductosTodos() {
+    return leerColeccion('saborExpressProductos', () => PRODUCTOS_INICIALES).map(normalizarProducto);
+}
 
-    return Array.from({ length: 247 }, (_, index) => {
-        const itemBase = expanded[(index * 17) % expanded.length];
-        const cantidad = 7 + (index % 5);
-        const extra = expanded[(index * 29 + 11) % expanded.length];
-        const items = [
-            { ...itemBase, productoId: `demo-${index}-a`, cantidad },
-            { ...extra, productoId: `demo-${index}-b`, cantidad: 2 + (index % 3) }
-        ];
-        const baseTotal = items.reduce((total, item) => total + item.precio * item.cantidad, 0);
-        const creadoEn = new Date();
-        creadoEn.setDate(creadoEn.getDate() - (index % 7));
-        creadoEn.setHours(9 + (index % 12), (index * 13) % 60, 0, 0);
-        return {
-            id: `DEMO-${String(index + 1).padStart(4, '0')}`,
-            estado: estados[index % estados.length],
-            total: Number(baseTotal.toFixed(2)),
-            creadoEn,
-            items
-        };
-    });
+export function guardarProductos(lista) {
+    localStorage.setItem('saborExpressProductos', JSON.stringify(lista));
+}
+
+// ---------------------------------------------------------------------------
+// Pedidos reales (creados desde el Checkout). Ya no se generan pedidos ficticios.
+// ---------------------------------------------------------------------------
+const CLAVE_PEDIDOS = 'saborExpressPedidos';
+const esDemo = pedido => String(pedido?.id ?? '').startsWith('DEMO-');
+
+// Descarta los pedidos de demostración que versiones anteriores dejaron en el navegador.
+function leerPedidosGuardados() {
+    return leerColeccion(CLAVE_PEDIDOS, () => []).filter(pedido => !esDemo(pedido));
 }
 
 export async function obtenerPedidos() {
-    const datos = leerColeccion('saborExpressPedidos', construirPedidosDemo)
-        .map(normalizarPedido).sort((a, b) => b.creadoEn - a.creadoEn);
+    const datos = leerPedidosGuardados().map(normalizarPedido).sort((a, b) => b.creadoEn - a.creadoEn);
     return { datos, origen: 'localStorage' };
 }
 
-export function leerSesion() {
+export function crearPedido(datos) {
+    const pedidos = leerPedidosGuardados();
+    const pedido = {
+        ...datos,
+        id: `SE-${String(pedidos.length + 1).padStart(4, '0')}`,
+        estado: 'Pendiente',
+        creadoEn: new Date().toISOString()
+    };
+    pedidos.push(pedido);
+    localStorage.setItem(CLAVE_PEDIDOS, JSON.stringify(pedidos));
+    return pedido;
+}
+
+export function actualizarEstadoPedido(id, estado) {
+    const pedidos = leerPedidosGuardados();
+    const pedido = pedidos.find(item => item.id === id);
+    if (!pedido) return false;
+    pedido.estado = estado;
+    localStorage.setItem(CLAVE_PEDIDOS, JSON.stringify(pedidos));
+    return true;
+}
+
+// ---------------------------------------------------------------------------
+// Sesión y usuarios. Una sola sesión a la vez: 'cliente' o 'admin'.
+// ---------------------------------------------------------------------------
+const CLAVE_SESION = 'saborExpressSession';            // cliente (tienda)
+const CLAVE_SESION_ADMIN = 'saborExpressAdminSession'; // administrador (paneles)
+
+// Cuenta de demostración del administrador (credenciales públicas, solo para pruebas).
+export const ADMIN_DEMO = {
+    email: 'admin@saborexpress.com',
+    password: 'Admin123',
+    name: 'Carlos M.',
+    role: 'admin'
+};
+
+function leerClave(clave, rol) {
     try {
-        return JSON.parse(localStorage.getItem('saborExpressSession'));
+        const sesion = JSON.parse(localStorage.getItem(clave));
+        return sesion && sesion.role === rol ? sesion : null;
     } catch {
         return null;
     }
+}
+
+// Sesión del cliente (tienda). Una sesión de administrador nunca se refleja aquí.
+export function leerSesion() {
+    return leerClave(CLAVE_SESION, 'cliente');
+}
+
+// Sesión del administrador (paneles). Es independiente de la del cliente.
+export function leerSesionAdmin() {
+    return leerClave(CLAVE_SESION_ADMIN, 'admin');
+}
+
+export function guardarSesion(usuario) {
+    const clave = usuario.role === 'admin' ? CLAVE_SESION_ADMIN : CLAVE_SESION;
+    localStorage.setItem(clave, JSON.stringify({
+        name: usuario.name,
+        email: usuario.email,
+        role: usuario.role,
+        loginAt: new Date().toISOString()
+    }));
+}
+
+export function cerrarSesion(rol = 'cliente') {
+    localStorage.removeItem(rol === 'admin' ? CLAVE_SESION_ADMIN : CLAVE_SESION);
+}
+
+export function leerUsuarios() {
+    try {
+        const datos = JSON.parse(localStorage.getItem('saborExpressUsers'));
+        return Array.isArray(datos) ? datos : [];
+    } catch {
+        return [];
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Carrito: una sola clave (saborExpressCart) para Menú, Carrito y Checkout.
+// ---------------------------------------------------------------------------
+export function leerCarrito() {
+    try {
+        const carrito = JSON.parse(localStorage.getItem('saborExpressCart'));
+        return Array.isArray(carrito) ? carrito.map(item => ({
+            ...item, imagen: resolverImagenMenu(item.imagen)
+        })) : [];
+    } catch {
+        return [];
+    }
+}
+
+export function guardarCarrito(carrito) {
+    localStorage.setItem('saborExpressCart', JSON.stringify(carrito));
+    actualizarContadorCarrito();
+}
+
+export function vaciarCarrito() {
+    guardarCarrito([]);
+}
+
+export function actualizarContadorCarrito() {
+    const total = leerCarrito().reduce((sum, item) => sum + Number(item.cantidad || 0), 0);
+    document.querySelectorAll('[data-cart-count]').forEach(nodo => { nodo.textContent = total; });
+}
+
+// ---------------------------------------------------------------------------
+// Navbar de la tienda: contador del carrito + menú de "Mi cuenta"
+// ---------------------------------------------------------------------------
+function pintarMenuCuenta() {
+    const label = document.querySelector('[data-account-label]');
+    const menu = document.querySelector('[data-account-menu]');
+    if (!label || !menu) return;
+    const sesion = leerSesion();
+
+    if (!sesion) {
+        label.textContent = 'Mi cuenta';
+        menu.innerHTML = `
+            <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión</a></li>
+            <li><a class="dropdown-item" href="registro.html"><i class="bi bi-person-plus me-2"></i>Crear cuenta</a></li>`;
+        return;
+    }
+
+    label.textContent = sesion.name?.split(' ')[0] || 'Mi cuenta';
+    const destino = '<li><a class="dropdown-item" href="mis-pedidos.html"><i class="bi bi-receipt me-2"></i>Mis Pedidos</a></li>';
+    menu.innerHTML = `${destino}
+        <li><hr class="dropdown-divider"></li>
+        <li><button class="dropdown-item text-danger" type="button" data-logout><i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión</button></li>`;
+    menu.querySelector('[data-logout]').addEventListener('click', () => {
+        cerrarSesion();
+        window.location.href = 'index.html';
+    });
+}
+
+export function iniciarNavbar() {
+    // Limpia claves de carrito de versiones anteriores (ya no se usan).
+    ['saborexpress_cart', 'cart', 'se_cart', 'carrito', 'saborexpress_carrito'].forEach(clave => localStorage.removeItem(clave));
+    actualizarContadorCarrito();
+    pintarMenuCuenta();
+    window.addEventListener('pageshow', actualizarContadorCarrito);
+}
+
+// ---------------------------------------------------------------------------
+// Paneles de administración: exige sesión admin y pinta nombre, correo y salida
+// ---------------------------------------------------------------------------
+export function iniciarAdmin(pagina) {
+    const sesion = leerSesionAdmin();
+    if (!sesion) {
+        window.location.replace(`login.html?redirect=${pagina}`);
+        return false;
+    }
+    const nombre = document.querySelector('[data-admin-name]');
+    const correo = document.querySelector('[data-admin-email]');
+    if (nombre && sesion.name) nombre.textContent = sesion.name;
+    if (correo && sesion.email) correo.textContent = sesion.email;
+    document.querySelector('[data-admin-logout]')?.addEventListener('click', () => {
+        cerrarSesion('admin');
+        window.location.href = 'login.html';
+    });
+    return true;
 }
 
 export function modoDatos() {

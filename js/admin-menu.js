@@ -1,112 +1,100 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* ============================================
+   SaborExpress · Admin Menú (CRUD del catálogo)
+   Lee y guarda en saborExpressProductos, el mismo catálogo que muestra el Menú público.
+   ============================================ */
+import { iniciarAdmin, leerProductosTodos, guardarProductos, PRODUCTOS_INICIALES } from './saborexpress-data.js';
 
-    const adminGrid = document.getElementById('admin-menu-grid');
-    const formAdd = document.getElementById('form-add-product');
-    const nameSelect = document.getElementById('new-prod-name');
-    const priceInput = document.getElementById('new-prod-price');
+let productos = [];
 
-    const PRODUCT_IMAGES = {
-        "Pupusa de Queso": "img/menú/pupusa-queso.png",
-        "Pupusa Revuelta": "img/menú/pupusa-revuelta.png",
-        "Pupusa de Frijol con Queso": "img/menú/pupusa-frijol-queso.png",
-        "Pupusa de Loroco": "img/menú/pupusa-loroco.png",
-        "Pupusa Loca": "img/menú/pupusa-loca.png",
-        "Yuca Frita con Chicharrón": "img/menú/yuca-frita.png",
-        "Café de Palo": "img/menú/cafe.png",
-        "Chocolate Caliente": "img/menú/chocolate.png",
-        "Soda Coca Cola": "img/menú/soda-coca-cola.png",
-        "Soda Fanta": "img/menú/soda-fanta.png",
-        "Soda Fresa": "img/menú/soda-fresa.png",
-        "Soda Sprite": "img/menú/soda-sprite.png",
-        "Arroz con Leche": "img/menú/arroz-leche.png",
-        "Nuégados con Miel": "img/menú/nuegados.png",
-        "Quesadilla Rústica": "img/menú/quesadilla.png"
-    };
+const money = value => `$${Number(value || 0).toFixed(2)}`;
+const esc = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
+const precioValido = valor => Number.isFinite(valor) && valor > 0 && valor <= 99;
 
-    // Autocompletar el precio automáticamente al seleccionar producto
-    if (nameSelect) {
-        nameSelect.addEventListener('change', (e) => {
-            const selectedOption = e.target.options[e.target.selectedIndex];
-            const defaultPrice = selectedOption.getAttribute('data-price');
-
-            if (defaultPrice && priceInput) {
-                priceInput.value = defaultPrice;
-            }
-        });
-    }
-
-    // Editar y eliminar
-    if (adminGrid) {
-        adminGrid.addEventListener('click', (e) => {
-            const btnDelete = e.target.closest('.btn-action-delete');
-            if (btnDelete) {
-                const cardCol = btnDelete.closest('.col-md-4');
-                if (cardCol && confirm('¿Estás seguro de eliminar este producto del menú público?')) {
-                    cardCol.remove();
-                }
-            }
-
-            const btnEdit = e.target.closest('.btn-action-edit');
-            if (btnEdit) {
-                const card = btnEdit.closest('.admin-card');
-                const titleEl = card.querySelector('.admin-product-title');
-                const priceEl = card.querySelector('.admin-product-price');
-
-                const currentName = titleEl ? titleEl.textContent.trim() : '';
-                const currentPrice = priceEl ? priceEl.textContent.replace('$', '').trim() : '0.00';
-
-                const newName = prompt('Editar nombre del producto:', currentName);
-                if (newName !== null && newName.trim() !== '') {
-                    titleEl.textContent = newName.trim();
-                }
-
-                const newPrice = prompt('Editar precio ($):', currentPrice);
-                if (newPrice !== null && !isNaN(parseFloat(newPrice))) {
-                    priceEl.textContent = `$${parseFloat(newPrice).toFixed(2)}`;
-                }
-            }
-        });
-    }
-
-    // Agregar nuevo producto 
-    if (formAdd) {
-        formAdd.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const selectedOption = nameSelect?.options[nameSelect.selectedIndex];
-            const name = nameSelect ? nameSelect.value : 'Nuevo Producto';
-            const category = selectedOption?.getAttribute('data-category') || 'Pupusas';
-            const price = parseFloat(priceInput ? priceInput.value : 0).toFixed(2);
-            const imgSrc = selectedOption?.getAttribute('data-img') || PRODUCT_IMAGES[name] || 'img/menú/pupusa-queso.png';
-
-            const newCol = document.createElement('div');
-            newCol.className = 'col-md-4';
-            newCol.innerHTML = `
-                <div class="admin-card">
-                    <img src="${imgSrc}" class="admin-card-img" alt="${name}">
-                    <div class="admin-card-body">
-                        <h3 class="admin-product-title">${name}</h3>
-                        <p class="admin-product-category">${category}</p>
-                        <p class="admin-product-price">$${price}</p>
-                    </div>
-                    <div class="admin-card-footer d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn-action-text btn-action-edit">[Editar]</button>
-                        <button type="button" class="btn-action-text btn-action-delete">[Eliminar]</button>
-                    </div>
+function render() {
+    const grid = document.getElementById('admin-menu-grid');
+    grid.innerHTML = productos.length ? productos.map(producto => `
+        <div class="col-md-4">
+            <div class="admin-card">
+                <img src="${esc(producto.imagen)}" class="admin-card-img" alt="${esc(producto.nombre)}">
+                <div class="admin-card-body">
+                    <h3 class="admin-product-title">${esc(producto.nombre)}</h3>
+                    <p class="admin-product-category">${esc(producto.categoria)}</p>
+                    <p class="admin-product-price">${money(producto.precio)}</p>
                 </div>
-            `;
+                <div class="admin-card-footer d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn-action-text btn-action-edit" data-id="${esc(producto.id)}">[Editar]</button>
+                    <button type="button" class="btn-action-text btn-action-delete" data-id="${esc(producto.id)}">[Eliminar]</button>
+                </div>
+            </div>
+        </div>`).join('') : '<p class="text-secondary">El menú está vacío. Usa "Añadir Producto" para agregar platillos.</p>';
+    llenarSelect();
+}
 
-            if (adminGrid) {
-                adminGrid.appendChild(newCol);
+// Solo se ofrecen los platillos base que todavía no están en el menú.
+function llenarSelect() {
+    const select = document.getElementById('new-prod-name');
+    const existentes = new Set(productos.map(producto => producto.id));
+    const disponibles = PRODUCTOS_INICIALES.filter(producto => !existentes.has(producto.id));
+    select.innerHTML = '<option value="" selected disabled>-- Selecciona un platillo o bebida --</option>' +
+        disponibles.map(producto => `<option value="${esc(producto.id)}" data-price="${producto.precio}">${esc(producto.nombre)} (${esc(producto.categoria)})</option>`).join('');
+}
+
+function persistir() {
+    guardarProductos(productos);
+    render();
+}
+
+function init() {
+    if (!iniciarAdmin('admin-menu.html')) return;
+    productos = leerProductosTodos();
+    render();
+
+    const select = document.getElementById('new-prod-name');
+    const precio = document.getElementById('new-prod-price');
+    const error = document.getElementById('addProductError');
+
+    select.addEventListener('change', () => {
+        precio.value = select.selectedOptions[0]?.dataset.price || '';
+    });
+
+    document.getElementById('admin-menu-grid').addEventListener('click', event => {
+        const eliminar = event.target.closest('.btn-action-delete');
+        const editar = event.target.closest('.btn-action-edit');
+        const id = (eliminar || editar)?.dataset.id;
+        const producto = productos.find(item => item.id === id);
+        if (!producto) return;
+
+        if (eliminar && confirm(`¿Eliminar "${producto.nombre}" del menú público?`)) {
+            productos = productos.filter(item => item.id !== id);
+            persistir();
+        }
+        if (editar) {
+            const nombre = prompt('Editar nombre del producto:', producto.nombre)?.trim();
+            if (nombre) producto.nombre = nombre;
+            const nuevo = prompt('Editar precio ($):', producto.precio.toFixed(2));
+            if (nuevo !== null) {
+                if (precioValido(parseFloat(nuevo))) producto.precio = Number(parseFloat(nuevo).toFixed(2));
+                else alert('Ingresa un precio válido (mayor que 0).');
             }
+            persistir();
+        }
+    });
 
-            formAdd.reset();
+    document.getElementById('form-add-product').addEventListener('submit', event => {
+        event.preventDefault();
+        error.classList.add('d-none');
+        const base = PRODUCTOS_INICIALES.find(item => item.id === select.value);
+        const valor = parseFloat(precio.value);
+        if (!base || !precioValido(valor)) {
+            error.textContent = 'Selecciona un producto e ingresa un precio válido (mayor que 0).';
+            error.classList.remove('d-none');
+            return;
+        }
+        productos.push({ ...base, precio: Number(valor.toFixed(2)), activo: true });
+        persistir();
+        event.target.reset();
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('modalAddProduct')).hide();
+    });
+}
 
-            const modalEl = document.getElementById('modalAddProduct');
-            if (modalEl) {
-                const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
-                modalInstance.hide();
-            }
-        });
-    }
-});
+document.addEventListener('DOMContentLoaded', init);

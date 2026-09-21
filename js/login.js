@@ -1,38 +1,18 @@
 /* ============================================
-   SaborExpress · Login de cliente
+   SaborExpress · Inicio de sesión (clientes y administrador)
+   Un solo formulario: según las credenciales se decide el rol y la vista.
    ============================================ */
+import { ADMIN_DEMO, leerSesion, guardarSesion, leerUsuarios } from './saborexpress-data.js';
 
-function leerUsuarios() {
-    try {
-        const datos = JSON.parse(localStorage.getItem('saborExpressUsers'));
-        return Array.isArray(datos) ? datos : [];
-    } catch {
-        return [];
-    }
-}
+const REGEX_CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function leerSesion() {
-    try {
-        return JSON.parse(localStorage.getItem('saborExpressSession'));
-    } catch {
-        return null;
-    }
-}
-
-function guardarSesionCliente(usuario) {
-    localStorage.setItem('saborExpressSession', JSON.stringify({
-        name: usuario.name,
-        email: usuario.email,
-        role: 'cliente',
-        loginAt: new Date().toISOString()
-    }));
-}
-
-function destinoSeguro() {
-    const params = new URLSearchParams(window.location.search);
-    const redirect = params.get('redirect');
-    if (redirect && /^[a-zA-Z0-9_-]+\.html$/.test(redirect)) return redirect;
-    return 'mis-pedidos.html';
+// Devuelve la página a la que debe ir cada rol (ignora destinos que no le corresponden).
+function paginaDestino(rol) {
+    const redirect = new URLSearchParams(window.location.search).get('redirect');
+    const valida = Boolean(redirect && /^[a-zA-Z0-9_-]+\.html$/.test(redirect));
+    const esPanel = valida && redirect.startsWith('admin-');
+    if (rol === 'admin') return esPanel ? redirect : 'admin-reportes.html';
+    return valida && !esPanel ? redirect : 'mis-pedidos.html';
 }
 
 function mostrarError(mensaje) {
@@ -41,43 +21,39 @@ function mostrarError(mensaje) {
     box.classList.remove('d-none');
 }
 
-function ocultarError() {
-    document.getElementById('loginError').classList.add('d-none');
-}
-
 function init() {
-    // Si ya hay una sesion de cliente activa, no tiene sentido ver el login de nuevo.
-    const sesionActual = leerSesion();
-    if (sesionActual && sesionActual.role === 'cliente') {
-        window.location.replace(destinoSeguro());
+    // Solo la sesión de cliente redirige; con una sesión de admin se puede iniciar como cliente.
+    if (leerSesion()) {
+        window.location.replace(paginaDestino('cliente'));
         return;
     }
 
-    const form = document.getElementById('loginForm');
-    if (!form) return;
+    const enlaceRegistro = document.querySelector('a[href="registro.html"]');
+    if (enlaceRegistro) enlaceRegistro.search = window.location.search;
 
-    form.addEventListener('submit', (event) => {
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', event => {
         event.preventDefault();
-        ocultarError();
+        document.getElementById('loginError').classList.add('d-none');
 
         const correo = document.getElementById('loginCorreo').value.trim().toLowerCase();
         const password = document.getElementById('loginPassword').value;
 
-        if (!correo || !password) {
-            mostrarError('Ingresa tu correo y tu contraseña.');
+        if (!correo || !password) return mostrarError('Ingresa tu correo y tu contraseña.');
+        if (!REGEX_CORREO.test(correo)) return mostrarError('Ingresa un correo válido.');
+
+        if (correo === ADMIN_DEMO.email && password === ADMIN_DEMO.password) {
+            guardarSesion(ADMIN_DEMO);
+            window.location.href = paginaDestino('admin');
             return;
         }
 
-        const usuarios = leerUsuarios();
-        const usuario = usuarios.find(u => u.email === correo && u.password === password);
+        const usuario = leerUsuarios().find(u => u.email === correo);
+        if (!usuario) return mostrarError('No existe una cuenta con ese correo. Crea una cuenta para continuar.');
+        if (usuario.password !== password) return mostrarError('Contraseña incorrecta. Usa la que escribiste al registrarte.');
 
-        if (!usuario) {
-            mostrarError('Correo o contraseña incorrectos.');
-            return;
-        }
-
-        guardarSesionCliente(usuario);
-        window.location.href = destinoSeguro();
+        guardarSesion({ name: usuario.name, email: usuario.email, role: 'cliente' });
+        window.location.href = paginaDestino('cliente');
     });
 }
 

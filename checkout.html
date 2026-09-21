@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/menu-reportes.css">
     <link rel="stylesheet" href="css/carrito-adminmenu.css">
 </head>
@@ -35,14 +34,17 @@
                         <li class="nav-item"><a class="nav-link" href="mis-pedidos.html">Mis Pedidos</a></li>
                         <li class="nav-item">
                             <a class="nav-link cart-pill active" href="carrito.html" aria-current="page">
-                                <i class="bi bi-cart3 me-1"></i> Carrito (<span id="cart-count">0</span>)
+                                <i class="bi bi-cart3 me-1"></i> Carrito (<span data-cart-count>0</span>)
                             </a>
                         </li>
                     </ul>
-                    <a class="account-link mt-3 mt-lg-0" href="login.html" data-account-link>
-                        <span class="account-icon"><i class="bi bi-person"></i></span>
-                        <span data-account-label>Mi cuenta</span>
-                    </a>
+                    <div class="dropdown mt-3 mt-lg-0">
+                        <button class="account-link btn p-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="account-icon"><i class="bi bi-person"></i></span>
+                            <span data-account-label>Mi cuenta</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" data-account-menu></ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -63,17 +65,17 @@
                         
                         <div class="mb-3">
                             <label class="form-label checkout-label" for="input-nombre">NOMBRE DE CONTACTO</label>
-                            <input type="text" class="form-control checkout-input" id="input-nombre" value="Juan Pérez">
+                            <input type="text" class="form-control checkout-input" id="input-nombre" placeholder="Nombre y apellido">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label checkout-label" for="input-telefono">TELÉFONO DE CONTACTO</label>
-                            <input type="text" class="form-control checkout-input" id="input-telefono" value="7777-7777">
+                            <input type="text" class="form-control checkout-input" id="input-telefono" placeholder="7777-7777">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label checkout-label" for="input-direccion">DIRECCIÓN DE ENTREGA</label>
-                            <input type="text" class="form-control checkout-input" id="input-direccion" value="Avenida Revolución, #007">
+                            <input type="text" class="form-control checkout-input" id="input-direccion" placeholder="Calle, número, colonia y municipio">
                         </div>
 
                         <div class="mb-3">
@@ -134,7 +136,9 @@
                             <span class="summary-total-value" id="checkout-total">$0.00</span>
                         </div>
 
-                        <button type="button" class="btn-checkout-outline w-100 py-2" id="btn-confirm-order" style="background-color: #1f242d; color: #fff; border: none;">
+                        <div id="checkout-error" class="alert alert-danger py-2 small d-none" role="alert"></div>
+
+                        <button type="button" class="btn-confirm-order" id="btn-confirm-order">
                             Confirmar pedido
                         </button>
 
@@ -163,6 +167,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="js/carrito.js"></script>
+    <script type="module" src="js/carrito.js"></script>
 </body>
 </html>
