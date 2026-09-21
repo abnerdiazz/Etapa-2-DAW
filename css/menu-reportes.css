@@ -2,7 +2,7 @@
 .brand-logo { width:48px; height:48px; object-fit:contain; flex-shrink:0; }
 body { padding-top:0; }
 /* ========================================================================== */
-/* SaborExpress · Etapa 2 · Menú + Reportes (paleta de los mockups de Figma)  */
+/* SaborExpress · Etapa 2 · Menú + Reportes                                   */
 /* ========================================================================== */
 :root {
     --se-primary: #CE4B31;
@@ -185,9 +185,6 @@ body { padding-top:0; }
     .range-toolbar { align-items: stretch; }
 }
 
-/* ========================================================================== */
-/* Admin · navegación superior inspirada en el wireframe de Etapa 1           */
-/* ========================================================================== */
 .admin-wireframe-page {
     min-height: 100vh;
     background: #fff;
@@ -384,9 +381,7 @@ body { padding-top:0; }
 }/* Estilos exclusivos de menu, reportes y acceso administrativo. */
 .brand-logo { width:48px; height:48px; object-fit:contain; flex-shrink:0; }
 body { padding-top:0; }
-/* ========================================================================== */
-/* SaborExpress · Etapa 2 · Menú + Reportes (paleta de los mockups de Figma)  */
-/* ========================================================================== */
+
 :root {
     --se-primary: #CE4B31;
     --se-primary-dark: #B83D27;
@@ -568,9 +563,7 @@ body { padding-top:0; }
     .range-toolbar { align-items: stretch; }
 }
 
-/* ========================================================================== */
-/* Admin · navegación superior inspirada en el wireframe de Etapa 1           */
-/* ========================================================================== */
+
 .admin-wireframe-page {
     min-height: 100vh;
     background: #fff;
@@ -752,16 +745,4 @@ body { padding-top:0; }
     .admin-login-card { padding: 1.4rem; }
     .admin-report-search { width: 100%; }
     .wireframe-chart-container { height: 220px; }
-}
-
-/* ---------- Animaciones al pasar el cursor (tarjetas e imágenes) ---------- */
-.menu-product-card { transition: transform .25s ease, box-shadow .25s ease; }
-.menu-product-card:hover { transform: translateY(-4px); box-shadow: var(--se-shadow); }
-.menu-product-image { transition: transform .4s ease; }
-.menu-product-image-wrap { overflow: hidden; border-radius: 13px; }
-.menu-product-card:hover .menu-product-image-wrap .menu-product-image { transform: scale(1.08); }
-.menu-product-card:hover > .menu-product-image { transform: scale(1.04); }
-@media (prefers-reduced-motion: reduce) {
-    .menu-product-card, .menu-product-image { transition: none; }
-    .menu-product-card:hover, .menu-product-card:hover .menu-product-image { transform: none; }
 }

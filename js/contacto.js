@@ -1,6 +1,3 @@
-/* ============================================
-   SaborExpress · Etapa 2 · Contacto
-   ============================================ */
 import { iniciarNavbar } from './saborexpress-data.js';
 
 // Envío del formulario de contacto (simulado, sin backend todavía)

@@ -1,8 +1,3 @@
-/* ============================================
-   SaborExpress · Carrito y Checkout
-   Usa el mismo carrito (saborExpressCart) que el Menú y crea
-   pedidos reales en saborExpressPedidos.
-   ============================================ */
 import { iniciarNavbar, leerCarrito, guardarCarrito, vaciarCarrito, leerSesion, leerUsuarios, crearPedido } from './saborexpress-data.js';
 
 const ENVIO = 1.00;

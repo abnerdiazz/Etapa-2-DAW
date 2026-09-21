@@ -1,7 +1,3 @@
-/* ============================================
-   SaborExpress · Admin Menú (CRUD del catálogo)
-   Lee y guarda en saborExpressProductos, el mismo catálogo que muestra el Menú público.
-   ============================================ */
 import { iniciarAdmin, leerProductosTodos, guardarProductos, PRODUCTOS_INICIALES } from './saborexpress-data.js';
 
 let productos = [];

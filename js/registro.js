@@ -1,7 +1,3 @@
-/* ============================================
-   SaborExpress · Registro de cliente
-   ============================================ */
-
 function leerUsuarios() {
     try {
         const datos = JSON.parse(localStorage.getItem('saborExpressUsers'));

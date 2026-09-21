@@ -87,10 +87,6 @@ body { padding-top:0; }
 .site-footer a:hover { color: var(--se-primary); }
 .site-footer p { margin-bottom: 0.4rem; opacity: 0.92; }
 
-/* ==========================================================================
-   Elementos propios de Contacto
-   ========================================================================== */
-
 .contact-title { text-align: center; }
 .contact-lead { max-width: 620px; }
 .contact-divider { border: none; border-top: 1px solid var(--se-border); }
